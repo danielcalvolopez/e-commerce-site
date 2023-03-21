@@ -1,3 +1,5 @@
+First run npm install to add all the dependencies.
+
 ```bash
 npm run dev
 # or
