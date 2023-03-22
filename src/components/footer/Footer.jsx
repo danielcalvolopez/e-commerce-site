@@ -9,6 +9,7 @@ import {
 const Footer = () => {
   return (
     <div className={classes["footer-container"]}>
+      <span className={classes["orange-line"]} />
       <div className={classes["footer-content"]}>
         <div className={classes.header}>
           <Logo />

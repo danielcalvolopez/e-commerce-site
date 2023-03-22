@@ -4,10 +4,10 @@ import Header from "./Header";
 const HeaderBig = ({ title }) => {
   return (
     <div>
-      <Header />
+      <Header className={classes["bg-gray"]} />
       <div className={classes.container}>
         <span className={classes.break} />
-        <h2 className={classes.title}>headphones</h2>
+        {title && <h2 className={classes.title}>headphones</h2>}
       </div>
     </div>
   );

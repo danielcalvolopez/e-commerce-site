@@ -6,9 +6,9 @@
   width: 100%;
   gap: 70px;
   padding-bottom: 70px;
-  padding: 0 140px 70px 140px;
-  background-color: black;
+  padding: 0 140px 0 140px;
   color: white;
+  background-color: black;
 }
 
 .break {
@@ -16,4 +16,21 @@
   height: 0.2px;
   border-radius: 5px;
   background-color: #9797976b;
+}
+
+.title {
+  padding-bottom: 70px;
+  background-color: black;
+}
+
+@media (max-width: 950px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding: 0;
+  }
 }

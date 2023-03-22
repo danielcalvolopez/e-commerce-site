@@ -3,6 +3,7 @@ import Header from "@/components/header/Header";
 import Head from "next/head";
 import classes from "@/styles/Home.module.css";
 import HeaderBig from "@/components/header/HeaderBig";
+import Hero from "@/components/hero/Hero";
 
 const Home = () => {
   return (
@@ -14,7 +15,7 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={classes["page-container"]}>
-        <HeaderBig />
+        <Hero />
         <div>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
           mollitia, molestiae quas vel sint commodi repudiandae consequuntur
