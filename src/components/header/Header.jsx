@@ -4,12 +4,12 @@ import Logo from "../Logo";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useMemo } from "react";
 
-const Header = ({ className }) => {
+const Header = ({ className, style }) => {
   const classNames = useMemo(() => {
     const defaultClassname = classes["header-container"];
 
     if (className) {
-      return className;
+      return defaultClassname.concat(" ", className);
     }
 
     return defaultClassname;

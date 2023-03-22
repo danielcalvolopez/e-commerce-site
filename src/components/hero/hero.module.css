@@ -11,6 +11,10 @@
   -o-background-size: cover;
 }
 
+.bg-gray {
+  background-color: #191919;
+}
+
 .hero .content {
   display: flex;
   flex-direction: column;

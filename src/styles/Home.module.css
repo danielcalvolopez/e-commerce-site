@@ -1,6 +1,8 @@
 .page-container {
   display: flex;
   flex-direction: column;
-  /* position: relative;
-  min-height: 100vh; */
+}
+
+.bg-black {
+  background-color: black;
 }

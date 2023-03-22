@@ -4,7 +4,7 @@ import classes from "./hero.module.css";
 const Hero = () => {
   return (
     <div className={classes.container}>
-      <HeaderBig />
+      <HeaderBig className={classes["bg-gray"]} />
 
       <div className={classes.hero}>
         <div className={classes.content}>
