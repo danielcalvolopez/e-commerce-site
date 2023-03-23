@@ -1,4 +1,7 @@
 import HeaderBig from "../header/HeaderBig";
+import Button1 from "../UI/buttons/Button1";
+import Button2 from "../UI/buttons/Button2";
+import Button3 from "../UI/buttons/Button3";
 import classes from "./hero.module.css";
 
 const Hero = () => {
@@ -14,6 +17,7 @@ const Hero = () => {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
+          <Button1>see product</Button1>
         </div>
       </div>
     </div>

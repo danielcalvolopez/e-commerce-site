@@ -1,0 +1,22 @@
+.button3 {
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
+  background-color: transparent;
+  color: gray;
+  width: 160px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  gap: 3px;
+}
+
+.button3:hover {
+  color: var(--dark-orange);
+}
+
+.arrow {
+  fill: var(--dark-orange);
+}

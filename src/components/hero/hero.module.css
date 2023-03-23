@@ -18,8 +18,9 @@
 .hero .content {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 40px;
   width: 400px;
+  margin-bottom: 40px;
 }
 
 .hero .announce {
