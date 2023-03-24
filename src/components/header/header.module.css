@@ -32,10 +32,12 @@
 
 .header-container .menu .menu-item {
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .header-container .menu .menu-item:hover {
   color: var(--dark-orange);
+  transition: all 0.2s ease-in-out;
 }
 
 @media (max-width: 950px) {

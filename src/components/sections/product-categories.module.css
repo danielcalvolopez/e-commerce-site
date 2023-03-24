@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 150px 0;
+}
+
+.container .categories {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+@media (max-width: 850px) {
+  .container {
+    padding: 100px 0;
+  }
+  .container .categories {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .container .categories {
+    gap: 70px;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding: 100px 0;
+  }
+}

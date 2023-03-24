@@ -60,10 +60,12 @@
 
 .footer-container .menu .menu-item {
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .footer-container .menu .menu-item:hover {
   color: var(--dark-orange);
+  transition: all 0.2s ease-in-out;
 }
 
 .footer-container .social {
@@ -73,10 +75,12 @@
 
 .footer-container .social .social-logo {
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .footer-container .social .social-logo:hover {
   fill: var(--dark-orange);
+  transition: all 0.2s ease-in-out;
 }
 
 .footer-container .footer-content .bottom .copyright {

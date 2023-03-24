@@ -1,7 +1,5 @@
 import HeaderBig from "../header/HeaderBig";
 import Button1 from "../UI/buttons/Button1";
-import Button2 from "../UI/buttons/Button2";
-import Button3 from "../UI/buttons/Button3";
 import classes from "./hero.module.css";
 
 const Hero = () => {

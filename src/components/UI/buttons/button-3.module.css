@@ -11,10 +11,12 @@
   align-items: center;
   cursor: pointer;
   gap: 3px;
+  transition: all 0.2s ease-in-out;
 }
 
 .button3:hover {
   color: var(--dark-orange);
+  transition: all 0.2s ease-in-out;
 }
 
 .arrow {

@@ -9,8 +9,10 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .button1:hover {
   background-color: var(--light-orange);
+  transition: all 0.2s ease-in-out;
 }

@@ -31,7 +31,7 @@ const Footer = () => {
 
           <div className={classes.bottom}>
             <p className={classes.copyright}>
-              Copyright 2021. All Rights Reserved
+              Copyright 2023. All Rights Reserved
             </p>
             <div className={classes.social}>
               <AiFillFacebook className={classes["social-logo"]} size={24} />

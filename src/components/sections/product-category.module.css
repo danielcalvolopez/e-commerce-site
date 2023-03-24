@@ -1,0 +1,28 @@
+.container {
+  position: relative;
+  width: fit-content;
+}
+
+.container .thumbnail {
+  position: absolute;
+  right: 26%;
+  top: -30%;
+}
+
+.container .card {
+  width: 350px;
+  height: 194px;
+  background-color: var(--gray);
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 10px;
+  align-items: center;
+  border-radius: 8px;
+}
+
+@media (max-width: 950px) {
+}
+
+@media (max-width: 375px) {
+}
