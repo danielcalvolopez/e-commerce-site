@@ -2,9 +2,16 @@ import classes from "./header.module.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Logo from "../Logo";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import ToggleMenu from "./ToggleMenu";
 
-const Header = ({ className, style }) => {
+const Header = ({ className }) => {
+  const [toggleMenu, setToggleMenu] = useState(false);
+
+  const handleToggleMenu = () => {
+    setToggleMenu((prev) => !prev);
+  };
+
   const classNames = useMemo(() => {
     const defaultClassname = classes["header-container"];
 
@@ -18,7 +25,11 @@ const Header = ({ className, style }) => {
     <div className={classes.header}>
       <div className={classNames}>
         <div className={classes["burger-logo"]}>
-          <GiHamburgerMenu className={classes.burger} size={24} />
+          <GiHamburgerMenu
+            onClick={handleToggleMenu}
+            className={classes.burger}
+            size={24}
+          />
 
           <Logo className={classes.logo} />
         </div>
@@ -31,6 +42,7 @@ const Header = ({ className, style }) => {
         </div>
         <AiOutlineShoppingCart className={classes.cart} size={22} />
       </div>
+      {toggleMenu && <ToggleMenu setToggleMenu={setToggleMenu} />}
     </div>
   );
 };

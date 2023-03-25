@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100vh;
+  z-index: 10;
+  top: 0;
+  left: 0px;
+  width: 100vw;
+  background-color: white;
+  overflow: hidden;
+  text-align: center;
+}
+
+.container .menu {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 5px;
+  margin-bottom: 70px;
+}
+
+.container .menu .menu-item {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.container .menu .menu-item:hover {
+  color: var(--dark-orange);
+  transition: all 0.2s ease-in-out;
+}
+
+.exit {
+  cursor: pointer;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}

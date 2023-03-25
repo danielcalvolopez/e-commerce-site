@@ -1,0 +1,14 @@
+.social {
+  display: flex;
+  gap: 10px;
+}
+
+.social .social-logo {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.social .social-logo:hover {
+  fill: var(--dark-orange);
+  transition: all 0.2s ease-in-out;
+}

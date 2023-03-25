@@ -1,4 +1,4 @@
-import Button3 from "../UI/buttons/Button3";
+import Button3 from "../../UI/buttons/Button3";
 import classes from "./product-category.module.css";
 
 const ProductCategory = ({ img, name }) => {

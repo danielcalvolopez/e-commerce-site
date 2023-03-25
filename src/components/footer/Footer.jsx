@@ -5,6 +5,7 @@ import {
   AiOutlineTwitter,
   AiOutlineInstagram,
 } from "react-icons/ai";
+import Socials from "../socials/Socials";
 
 const Footer = () => {
   return (
@@ -33,14 +34,8 @@ const Footer = () => {
             <p className={classes.copyright}>
               Copyright 2023. All Rights Reserved
             </p>
-            <div className={classes.social}>
-              <AiFillFacebook className={classes["social-logo"]} size={24} />
-              <AiOutlineTwitter className={classes["social-logo"]} size={24} />
-              <AiOutlineInstagram
-                className={classes["social-logo"]}
-                size={24}
-              />
-            </div>
+
+            <Socials />
           </div>
         </div>
       </div>
