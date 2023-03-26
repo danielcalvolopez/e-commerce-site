@@ -40,5 +40,17 @@
   cursor: pointer;
   position: absolute;
   top: 5%;
-  left: 5%;
+  left: 4%;
+}
+
+@media (max-width: 950px) {
+  .exit {
+    left: 5.5%;
+  }
+}
+
+@media (max-width: 375px) {
+  .exit {
+    left: 7.5%;
+  }
 }
