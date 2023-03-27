@@ -6,6 +6,7 @@ const ToggleMenu = ({ setToggleMenu }) => {
   const handleCloseMenu = () => {
     setToggleMenu(false);
   };
+
   return (
     <div className={classes.container}>
       <AiOutlineClose

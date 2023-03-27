@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 150px 0;
+  margin-bottom: 50px;
 }
 
 .container .categories {

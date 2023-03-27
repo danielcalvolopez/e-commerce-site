@@ -1,3 +1,13 @@
 .bg-black {
   background-color: black;
+  display: flex;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 150px 20px;
 }
