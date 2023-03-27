@@ -1,0 +1,8 @@
+.backdrop {
+  background-color: rgba(200, 200, 200, 0.435);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
