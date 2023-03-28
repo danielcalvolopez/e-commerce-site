@@ -5,6 +5,7 @@ import ProductCategories from "@/components/sections/product-categories/ProductC
 import Banner1 from "@/components/sections/banners/Banner1";
 import classes from "../styles/Home.module.css";
 import Banner2 from "@/components/sections/banners/Banner2";
+import Banner3 from "@/components/sections/banners/Banner3";
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
           <ProductCategories />
           <Banner1 />
           <Banner2 />
+          <Banner3 />
         </main>
         <Footer />
       </>

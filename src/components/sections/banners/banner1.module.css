@@ -67,14 +67,14 @@
 
 @media (max-width: 650px) {
   .container {
-    padding: 70px 200px;
+    padding: 70px 100px;
     width: 100%;
   }
 }
 
 @media (max-width: 530px) {
   .container {
-    padding: 70px 80px;
+    padding: 70px 100px;
   }
   .container .img {
     width: 250px;

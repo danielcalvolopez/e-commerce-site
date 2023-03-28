@@ -16,3 +16,9 @@
     background-position-x: 50%;
   }
 }
+
+@media (max-width: 650px) {
+  .container {
+    padding: 100px 30px;
+  }
+}
