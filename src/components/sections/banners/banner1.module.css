@@ -82,7 +82,7 @@
   .container {
     padding: 70px 100px;
     background-size: contain;
-    background-position-y: 0%;
+    background-position-y: -20%;
   }
   .container .img {
     width: 250px;

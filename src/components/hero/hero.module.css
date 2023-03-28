@@ -1,5 +1,5 @@
 .hero {
-  background-image: url("/desktop/image-hero.jpg");
+  background-image: url("/assets/desktop/image-hero.jpg");
   color: white;
   background-repeat: no-repeat;
   background-size: auto 100%;
@@ -38,7 +38,7 @@
 
 @media (max-width: 950px) {
   .hero {
-    background-image: url("/tablet/image-header.jpg");
+    background-image: url("/assets/home/tablet/image-header.jpg");
     padding: 100px 10px;
     display: flex;
     align-items: center;
@@ -65,7 +65,7 @@
 
 @media (max-width: 375px) {
   .hero {
-    background-image: url("/mobile/image-header.jpg");
+    background-image: url("/assets/home/mobile/image-header.jpg");
     padding: 60px 10px;
     display: flex;
     align-items: center;

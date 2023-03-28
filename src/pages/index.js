@@ -6,6 +6,7 @@ import Banner1 from "@/components/sections/banners/Banner1";
 import classes from "../styles/Home.module.css";
 import Banner2 from "@/components/sections/banners/Banner2";
 import Banner3 from "@/components/sections/banners/Banner3";
+import Banner4 from "@/components/sections/banners/Banner4";
 
 const Home = () => {
   return (
@@ -24,6 +25,7 @@ const Home = () => {
           <Banner1 />
           <Banner2 />
           <Banner3 />
+          <Banner4 />
         </main>
         <Footer />
       </>
