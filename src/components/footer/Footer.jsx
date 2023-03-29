@@ -6,6 +6,7 @@ import {
   AiOutlineInstagram,
 } from "react-icons/ai";
 import Socials from "../socials/Socials";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -15,8 +16,12 @@ const Footer = () => {
         <div className={classes.header}>
           <Logo />
           <div className={classes.menu}>
-            <p className={classes["menu-item"]}>Home</p>
-            <p className={classes["menu-item"]}>Headphones</p>
+            <Link href="/" className={classes["menu-item"]}>
+              Home
+            </Link>
+            <Link href="/headphones" className={classes["menu-item"]}>
+              Headphones
+            </Link>
             <p className={classes["menu-item"]}>Speakers</p>
             <p className={classes["menu-item"]}>Earphones</p>
           </div>

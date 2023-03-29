@@ -5,6 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { useEffect, useMemo, useState } from "react";
 import ToggleMenu from "./ToggleMenu";
 import Backdrop from "../UI/Backdrop";
+import Link from "next/link";
 
 const Header = ({ className }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -46,8 +47,12 @@ const Header = ({ className }) => {
         </div>
 
         <div className={classes.menu}>
-          <p className={classes["menu-item"]}>Home</p>
-          <p className={classes["menu-item"]}>Headphones</p>
+          <Link href="/" className={classes["menu-item"]}>
+            Home
+          </Link>
+          <Link href="/headphones" className={classes["menu-item"]}>
+            Headphones
+          </Link>
           <p className={classes["menu-item"]}>Speakers</p>
           <p className={classes["menu-item"]}>Earphones</p>
         </div>

@@ -2,7 +2,7 @@ import Product from "./Product";
 import classes from "./products.module.css";
 
 const Products = ({ data, category }) => {
-  const compare = (a, b) => {
+  const newFirstSort = (a, b) => {
     if (a.new === true) {
       return -1;
     }
@@ -10,10 +10,8 @@ const Products = ({ data, category }) => {
       return 1;
     }
   };
-  const sortedData = data.sort(compare);
+  const sortedData = data.sort(newFirstSort);
 
-  console.log(sortedData);
-  console.log(data);
   return (
     <div className={classes.container}>
       {sortedData.map((product) => {

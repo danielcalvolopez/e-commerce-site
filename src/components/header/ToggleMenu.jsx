@@ -1,6 +1,7 @@
 import classes from "./toggle-menu.module.css";
 import Socials from "../socials/Socials";
 import { AiOutlineClose } from "react-icons/ai";
+import Link from "next/link";
 
 const ToggleMenu = ({ setToggleMenu }) => {
   const handleCloseMenu = () => {
@@ -15,8 +16,12 @@ const ToggleMenu = ({ setToggleMenu }) => {
         size={30}
       />
       <div className={classes.menu}>
-        <p className={classes["menu-item"]}>Home</p>
-        <p className={classes["menu-item"]}>Headphones</p>
+        <Link href="/" className={classes["menu-item"]}>
+          Home
+        </Link>
+        <Link href="/headphones" className={classes["menu-item"]}>
+          Headphones
+        </Link>
         <p className={classes["menu-item"]}>Speakers</p>
         <p className={classes["menu-item"]}>Earphones</p>
       </div>
