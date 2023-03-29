@@ -1,10 +1,5 @@
 import Logo from "../Logo";
 import classes from "./footer.module.css";
-import {
-  AiFillFacebook,
-  AiOutlineTwitter,
-  AiOutlineInstagram,
-} from "react-icons/ai";
 import Socials from "../socials/Socials";
 import Link from "next/link";
 
