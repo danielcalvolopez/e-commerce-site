@@ -1,5 +1,6 @@
 import HeaderBig from "../header/HeaderBig";
 import Button1 from "../UI/buttons/Button1";
+import Counter from "../UI/Counter";
 import classes from "./hero.module.css";
 
 const Hero = () => {
@@ -16,6 +17,7 @@ const Hero = () => {
             made for the passionate music enthusiast.
           </p>
           <Button1>see product</Button1>
+          <Counter />
         </div>
       </div>
     </div>
