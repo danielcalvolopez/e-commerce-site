@@ -1,12 +1,24 @@
 import Footer from "@/components/footer/Footer";
 import HeaderBig from "@/components/header/HeaderBig";
-import React from "react";
+import Banner4 from "@/components/sections/banners/Banner4";
+import ProductCategories from "@/components/sections/product-categories/ProductCategories";
+import Products from "@/components/sections/products/Products";
+import MainContent from "@/components/UI/MainContent";
+import useFetch from "@/hooks/useFetch";
+import { useEffect } from "react";
+import classes from "../styles/headphones.module.css";
 
 const headphones = () => {
+  const { data } = useFetch();
+
   return (
     <>
       <HeaderBig title="headphones" className={classes["bg-black"]} />
-      <main></main>
+      <MainContent>
+        <Products data={data} category="headphones" />
+        <ProductCategories />
+        <Banner4 />
+      </MainContent>
       <Footer />
     </>
   );

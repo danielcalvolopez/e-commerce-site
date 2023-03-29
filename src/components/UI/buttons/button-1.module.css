@@ -3,6 +3,7 @@
   font-size: 13px;
   letter-spacing: 1px;
   background-color: var(--dark-orange);
+  color: white;
   width: 160px;
   height: 48px;
   display: flex;
