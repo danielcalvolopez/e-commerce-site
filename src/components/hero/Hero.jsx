@@ -17,7 +17,6 @@ const Hero = () => {
             made for the passionate music enthusiast.
           </p>
           <Button1>see product</Button1>
-          <Counter />
         </div>
       </div>
     </div>

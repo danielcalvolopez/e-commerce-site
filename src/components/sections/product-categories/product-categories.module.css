@@ -11,6 +11,6 @@
 @media (max-width: 1200px) {
   .categories {
     flex-direction: column;
-    gap: 150px;
+    gap: 100px;
   }
 }
