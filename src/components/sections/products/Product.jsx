@@ -11,8 +11,6 @@ const Product = ({
   categoryImage,
 }) => {
   const size = useScreenSize();
-
-  console.log(size);
   return (
     <div className={left ? classes.container : classes["container-reverse"]}>
       <img
