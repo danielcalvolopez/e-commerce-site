@@ -37,7 +37,7 @@
   color: var(--dark-orange);
 }
 
-@media (max-width: 1150px) {
+@media (max-width: 1200px) {
   .container {
     width: 100%;
     flex-direction: column-reverse;

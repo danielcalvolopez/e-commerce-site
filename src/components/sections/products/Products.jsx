@@ -21,11 +21,12 @@ const Products = ({ data, category }) => {
             <Product
               key={product.id}
               name={product.name}
-              image={product.image.desktop}
+              image={product.image}
               description={product.description}
               features={product.features}
               newProduct={product.new}
               left={product.left}
+              categoryImage={product.categoryImage}
             />
           )
         );

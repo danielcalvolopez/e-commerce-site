@@ -50,8 +50,27 @@
     gap: 70px;
   }
 
+  .img {
+    width: 100%;
+  }
+
   .info {
     align-items: center;
-    width: 50%;
+    width: 60%;
+  }
+}
+
+@media (max-width: 650px) {
+  .container,
+  .container-reverse {
+    gap: 40px;
+  }
+
+  .img {
+    width: 100%;
+  }
+
+  .info {
+    width: 80%;
   }
 }
