@@ -1,6 +1,5 @@
 import HeaderBig from "../header/HeaderBig";
 import Button1 from "../UI/buttons/Button1";
-import Counter from "../UI/Counter";
 import classes from "./hero.module.css";
 
 const Hero = () => {
