@@ -5,16 +5,15 @@ import ProductCategories from "@/components/sections/product-categories/ProductC
 import Products from "@/components/sections/products/Products";
 import MainContent from "@/components/UI/MainContent";
 import useFetch from "@/hooks/useFetch";
-import classes from "../styles/headphones.module.css";
+import classes from "../styles/speakers.module.css";
 
-const headphones = () => {
+const speakers = () => {
   const { data } = useFetch();
-
   return (
     <>
-      <HeaderBig title="headphones" className={classes["bg-black"]} />
+      <HeaderBig title="speakers" className={classes["bg-black"]} />
       <MainContent>
-        <Products data={data} category="headphones" />
+        <Products data={data} category="speakers" />
         <ProductCategories />
         <Banner4 />
       </MainContent>
@@ -23,4 +22,4 @@ const headphones = () => {
   );
 };
 
-export default headphones;
+export default speakers;

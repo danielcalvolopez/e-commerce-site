@@ -349,7 +349,7 @@
   },
   {
     "id": 5,
-    "left": true,
+    "left": false,
     "slug": "zx7-speaker",
     "name": "ZX7 Speaker",
     "image": {
@@ -438,7 +438,7 @@
   },
   {
     "id": 6,
-    "left": false,
+    "left": true,
     "slug": "zx9-speaker",
     "name": "ZX9 Speaker",
     "image": {

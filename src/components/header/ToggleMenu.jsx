@@ -22,8 +22,12 @@ const ToggleMenu = ({ setToggleMenu }) => {
         <Link href="/headphones" className={classes["menu-item"]}>
           Headphones
         </Link>
-        <p className={classes["menu-item"]}>Speakers</p>
-        <p className={classes["menu-item"]}>Earphones</p>
+        <Link href="/speakers" className={classes["menu-item"]}>
+          Speakers
+        </Link>
+        <Link href="/earphones" className={classes["menu-item"]}>
+          Earphones
+        </Link>
       </div>
       <Socials />
     </div>
