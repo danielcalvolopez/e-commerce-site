@@ -8,7 +8,7 @@ import useFetch from "@/hooks/useFetch";
 import classes from "../styles/earphones.module.css";
 
 const earphones = () => {
-  const { data } = useFetch();
+  const data = useFetch();
   return (
     <>
       <HeaderBig title="earphones" className={classes["bg-black"]} />

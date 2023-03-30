@@ -8,7 +8,7 @@ import useFetch from "@/hooks/useFetch";
 import classes from "../styles/speakers.module.css";
 
 const speakers = () => {
-  const { data } = useFetch();
+  const data = useFetch();
   return (
     <>
       <HeaderBig title="speakers" className={classes["bg-black"]} />

@@ -9,7 +9,7 @@ import useFetch from "@/hooks/useFetch";
 import classes from "../styles/headphones.module.css";
 
 const headphones = () => {
-  const { data } = useFetch();
+  const data = useFetch();
 
   return (
     <>

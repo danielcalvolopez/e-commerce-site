@@ -9,15 +9,33 @@ import ProductPictures from "@/components/sections/products/product-page/Product
 import Button1 from "@/components/UI/buttons/Button1";
 import Counter from "@/components/UI/Counter";
 import MainContent from "@/components/UI/MainContent";
+import useFetch from "@/hooks/useFetch";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import classes from "../styles/product-details.module.css";
 
 const productDetails = () => {
+  const router = useRouter();
+  const data = useFetch();
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    if (router.query.productDetails) {
+      let result = data.find((product) => {
+        return product.slug === router.query.productDetails;
+      });
+      setProduct(result);
+    }
+  }, [router.query.productDetails]);
+
+  console.log(product);
   return (
     <>
       <Header className={classes["bg-black"]} />
       <MainContent>
         <Product button={false}>
           <Counter />
+          {product?.name}
           <Button1>add to cart</Button1>
         </Product>
         <ProductInfo />
