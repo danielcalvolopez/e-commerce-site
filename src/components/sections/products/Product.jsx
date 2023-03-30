@@ -9,7 +9,6 @@ const Product = ({
   description,
   newProduct,
   left,
-  categoryImage,
   children,
   slug,
   button,
@@ -24,13 +23,7 @@ const Product = ({
     <div className={left ? classes.container : classes["container-reverse"]}>
       <img
         className={classes.img}
-        src={
-          size > 1200
-            ? image?.desktop
-            : size < 650
-            ? image?.mobile
-            : categoryImage?.tablet
-        }
+        src={size > 1200 ? image?.desktop : image?.mobile}
       />
       <div className={classes.info}>
         {newProduct && <p className={classes.new}>new product</p>}

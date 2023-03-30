@@ -1,3 +1,4 @@
+import Link from "next/link";
 import HeaderBig from "../header/HeaderBig";
 import Button1 from "../UI/buttons/Button1";
 import classes from "./hero.module.css";
@@ -15,7 +16,9 @@ const Hero = () => {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <Button1>see product</Button1>
+          <Link href="/xx99-mark-two-headphones">
+            <Button1>see product</Button1>
+          </Link>
         </div>
       </div>
     </div>

@@ -28,19 +28,25 @@ const productDetails = () => {
     }
   }, [router.query.productDetails]);
 
-  console.log(product);
   return (
     <>
       <Header className={classes["bg-black"]} />
       <MainContent>
-        <Product button={false}>
+        <Product
+          button={false}
+          image={product?.image}
+          name={product?.name}
+          description={product?.description}
+        >
           <Counter />
-          {product?.name}
           <Button1>add to cart</Button1>
         </Product>
-        <ProductInfo />
-        <ProductPictures />
-        <ProductSuggestions />
+        <ProductInfo
+          features={product?.features}
+          includes={product?.includes}
+        />
+        <ProductPictures gallery={product?.gallery} />
+        <ProductSuggestions productSuggestions={product?.others} />
         <ProductCategories />
         <Banner4 />
       </MainContent>
