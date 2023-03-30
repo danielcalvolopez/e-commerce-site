@@ -40,6 +40,11 @@
   justify-content: center;
 }
 
+.product-page {
+  display: flex;
+  gap: 20px;
+}
+
 @media (max-width: 1200px) {
   .container,
   .container-reverse {

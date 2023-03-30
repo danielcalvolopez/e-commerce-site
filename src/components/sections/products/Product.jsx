@@ -9,6 +9,8 @@ const Product = ({
   newProduct,
   left,
   categoryImage,
+  children,
+  button,
 }) => {
   const size = useScreenSize();
   return (
@@ -17,17 +19,18 @@ const Product = ({
         className={classes.img}
         src={
           size > 1200
-            ? image.desktop
+            ? image?.desktop
             : size < 650
-            ? image.mobile
-            : categoryImage.tablet
+            ? image?.mobile
+            : categoryImage?.tablet
         }
       />
       <div className={classes.info}>
         {newProduct && <p className={classes.new}>new product</p>}
         <h2 className={classes.name}>{name}</h2>
         <p className={classes.description}>{description}</p>
-        <Button1>see product</Button1>
+        {button && <Button1>see product</Button1>}
+        <div className={classes["product-page"]}>{children}</div>
       </div>
     </div>
   );

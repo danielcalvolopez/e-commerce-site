@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  gap: 30px;
+  width: 1100px;
+  margin: 100px 0;
+}
+
+.img-wrapper-left {
+  width: 100%;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.img {
+  border-radius: 8px;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 100%;
+  }
+
+  .img {
+    width: 100%;
+  }
+}
+@media (max-width: 800px) {
+  .container {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .left {
+    gap: 30px;
+  }
+
+  .img {
+    width: 100%;
+  }
+}

@@ -16,7 +16,6 @@
   display: none;
 }
 
-.header-container .logo,
 .header-container .cart {
   cursor: pointer;
 }

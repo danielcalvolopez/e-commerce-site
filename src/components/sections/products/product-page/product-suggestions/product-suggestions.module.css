@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100px 0;
+  gap: 50px;
+}
+
+.suggestions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1100px;
+}
+
+@media (max-width: 1200px) {
+  .suggestions {
+    width: 100%;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  .suggestions {
+    flex-direction: column;
+    gap: 90px;
+  }
+}

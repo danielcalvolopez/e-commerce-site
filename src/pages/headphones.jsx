@@ -1,4 +1,5 @@
 import Footer from "@/components/footer/Footer";
+import Header from "@/components/header/Header";
 import HeaderBig from "@/components/header/HeaderBig";
 import Banner4 from "@/components/sections/banners/Banner4";
 import ProductCategories from "@/components/sections/product-categories/ProductCategories";
