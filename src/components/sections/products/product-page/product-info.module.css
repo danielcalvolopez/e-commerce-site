@@ -48,3 +48,18 @@
     width: 100%;
   }
 }
+
+@media (max-width: 800px) {
+  .features {
+    text-align: center;
+    width: 100%;
+  }
+
+  .box {
+    text-align: center;
+  }
+
+  .list {
+    align-items: center;
+  }
+}
