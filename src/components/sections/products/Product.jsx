@@ -12,12 +12,13 @@ const Product = ({
   children,
   slug,
   button,
+  category,
 }) => {
   const size = useScreenSize();
   const router = useRouter();
 
   const handleOnClickProduct = () => {
-    router.push(`/${slug}`);
+    router.push(`/${category}/${slug}`);
   };
   return (
     <div className={left ? classes.container : classes["container-reverse"]}>

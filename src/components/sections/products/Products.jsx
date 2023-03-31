@@ -29,6 +29,7 @@ const Products = ({ data, category }) => {
               categoryImage={product.categoryImage}
               slug={product.slug}
               button={true}
+              category={product.category}
             />
           )
         );

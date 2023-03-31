@@ -4,23 +4,40 @@ import Banner4 from "@/components/sections/banners/Banner4";
 import ProductCategories from "@/components/sections/product-categories/ProductCategories";
 import Products from "@/components/sections/products/Products";
 import MainContent from "@/components/UI/MainContent";
-import classes from "../styles/speakers.module.css";
-import { getData } from "./api/products";
+import categories from "@/utils/data/categories";
+import { useRouter } from "next/router";
+import classes from "../../styles/category.module.css";
+import { getData } from "../api/products";
 
-const speakers = (props) => {
+const Category = (props) => {
   const data = props.data;
+
+  const router = useRouter();
+
+  const category = router.query.category;
+
+  const filteredData = data.filter((item) => item.category.includes(category));
 
   return (
     <>
-      <HeaderBig title="speakers" className={classes["bg-black"]} />
+      <HeaderBig title={category} className={classes["header-bg-black"]} />
       <MainContent>
-        <Products data={data} category="speakers" />
+        <Products data={filteredData} category={category} />
         <ProductCategories />
         <Banner4 />
       </MainContent>
       <Footer />
     </>
   );
+};
+
+export const getStaticPaths = () => {
+  return {
+    fallback: false,
+    paths: categories.map((category) => ({
+      params: { category: category.name },
+    })),
+  };
 };
 
 export const getStaticProps = async () => {
@@ -36,4 +53,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default speakers;
+export default Category;
