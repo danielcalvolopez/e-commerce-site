@@ -49,7 +49,7 @@ const productDetails = ({ data }) => {
         />
         <ProductPictures gallery={product?.gallery} />
         <ProductSuggestions suggestions={product?.others} />
-        <ProductCategories />
+        <ProductCategories data={data} />
         <Banner4 />
       </MainContent>
       <Footer />

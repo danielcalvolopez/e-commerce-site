@@ -4,7 +4,6 @@ import Banner4 from "@/components/sections/banners/Banner4";
 import ProductCategories from "@/components/sections/product-categories/ProductCategories";
 import Products from "@/components/sections/products/Products";
 import MainContent from "@/components/UI/MainContent";
-import categories from "@/utils/data/categories";
 import { useRouter } from "next/router";
 import classes from "../../styles/category.module.css";
 import { getData } from "../api/products";
@@ -23,7 +22,7 @@ const Category = (props) => {
       <HeaderBig title={category} className={classes["header-bg-black"]} />
       <MainContent>
         <Products data={filteredData} category={category} />
-        <ProductCategories />
+        <ProductCategories data={data} />
         <Banner4 />
       </MainContent>
       <Footer />
@@ -31,11 +30,14 @@ const Category = (props) => {
   );
 };
 
-export const getStaticPaths = () => {
+export const getStaticPaths = async () => {
+  const products = await getData();
+
+  const uniqueCategories = [...new Set(products.map((item) => item.category))];
   return {
     fallback: false,
-    paths: categories.map((category) => ({
-      params: { category: category.name },
+    paths: uniqueCategories.map((category) => ({
+      params: { category: category },
     })),
   };
 };

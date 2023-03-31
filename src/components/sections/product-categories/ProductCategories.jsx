@@ -1,12 +1,30 @@
-import categories from "@/utils/data/categories";
 import classes from "./product-categories.module.css";
 import ProductCategory from "./ProductCategory";
 
-const ProductCategories = () => {
+const ProductCategories = ({ data }) => {
+  const newData = data?.map(({ category, categoryImage }) => ({
+    category,
+    categoryImage,
+  }));
+
+  const filteredArray = [];
+  const includedCategories = {};
+
+  newData?.forEach((item) => {
+    if (!includedCategories[item.category]) {
+      filteredArray.push(item);
+      includedCategories[item.category] = true;
+    }
+  });
+
   return (
     <div className={classes.categories}>
-      {categories.map(({ imgSrc, name }) => (
-        <ProductCategory key={name} img={imgSrc} name={name} />
+      {filteredArray.map((item) => (
+        <ProductCategory
+          key={item.categoryImage.desktop}
+          img={item.categoryImage.desktop}
+          name={item.category}
+        />
       ))}
     </div>
   );
