@@ -1,15 +1,14 @@
 import Footer from "@/components/footer/Footer";
-import Header from "@/components/header/Header";
 import HeaderBig from "@/components/header/HeaderBig";
 import Banner4 from "@/components/sections/banners/Banner4";
 import ProductCategories from "@/components/sections/product-categories/ProductCategories";
 import Products from "@/components/sections/products/Products";
 import MainContent from "@/components/UI/MainContent";
-import useFetch from "@/hooks/useFetch";
 import classes from "../styles/headphones.module.css";
+import { getData } from "./api/products";
 
-const headphones = () => {
-  const data = useFetch();
+const headphones = (props) => {
+  const data = props.data;
 
   return (
     <>
@@ -22,6 +21,19 @@ const headphones = () => {
       <Footer />
     </>
   );
+};
+
+export const getStaticProps = async () => {
+  const products = await getData();
+
+  const allProducts = JSON.parse(JSON.stringify(products));
+
+  return {
+    props: {
+      data: allProducts,
+    },
+    revalidate: 1,
+  };
 };
 
 export default headphones;

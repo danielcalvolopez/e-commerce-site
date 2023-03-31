@@ -9,20 +9,22 @@ import ProductPictures from "@/components/sections/products/product-page/Product
 import Button1 from "@/components/UI/buttons/Button1";
 import Counter from "@/components/UI/Counter";
 import MainContent from "@/components/UI/MainContent";
-import useFetch from "@/hooks/useFetch";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import classes from "../styles/product-details.module.css";
-import produts from "../../public/data.json";
+import { MongoClient } from "mongodb";
+import { getData } from "./api/products";
 
-const productDetails = () => {
+const productDetails = (props) => {
   const router = useRouter();
 
   const [product, setProduct] = useState({});
 
+  const products = props.data;
+
   useEffect(() => {
     if (router.query.productDetails) {
-      let result = produts.find((product) => {
+      let result = products.find((product) => {
         return product.slug === router.query.productDetails;
       });
       setProduct(result);
@@ -55,30 +57,36 @@ const productDetails = () => {
   );
 };
 
-// export const getStaticPaths = async () => {
-//   const response = await fetch("http://localhost:3000/data.json");
-//   const data = await response.json();
+export const getStaticPaths = async () => {
+  const client = await MongoClient.connect(
+    "mongodb+srv://bubbleboy:fTdwgLSOBVi5BvDb@cluster0.dh7qqco.mongodb.net/e_commerce?retryWrites=true&w=majority"
+  );
+  const db = client.db();
+  const productsCollection = db.collection("products");
 
-//   const products = await data.find({}, { _slug: 1 }).toArray();
+  const products = await productsCollection.find({}, { slug: 1 }).toArray();
 
-//   return {
-//     fallback: false,
-//     paths: products.map((product) => ({
-//       params: { productDetails: product._slug.toString() },
-//     })),
-//   };
-// };
+  client.close();
 
-// export const getStaticProps = async (context) => {
-//   const currentSlug = await context.params.productDetails;
+  return {
+    fallback: false,
+    paths: products.map((product) => ({
+      params: { productDetails: product.slug },
+    })),
+  };
+};
 
-//   return {
-//     props: {
-//       data: data,
-//       slug: currentSlug,
-//     },
-//     revalidate: 1,
-//   };
-// };
+export const getStaticProps = async () => {
+  const products = await getData();
+
+  const allProducts = JSON.parse(JSON.stringify(products));
+
+  return {
+    props: {
+      data: allProducts,
+    },
+    revalidate: 1,
+  };
+};
 
 export default productDetails;
