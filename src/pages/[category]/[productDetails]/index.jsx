@@ -15,7 +15,7 @@ import Banner4 from "@/components/sections/banners/Banner4";
 import Footer from "@/components/footer/Footer";
 import ProductSuggestions from "@/components/sections/products/product-page/product-suggestions/ProductSuggestions";
 
-const productDetails = ({ data }) => {
+const ProductDetails = ({ data }) => {
   const router = useRouter();
 
   const [product, setProduct] = useState({});
@@ -92,4 +92,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default productDetails;
+export default ProductDetails;

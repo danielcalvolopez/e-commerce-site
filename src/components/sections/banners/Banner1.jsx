@@ -1,4 +1,5 @@
 import Button4 from "@/components/UI/buttons/Button4";
+import Link from "next/link";
 import classes from "./banner1.module.css";
 
 const Banner1 = () => {
@@ -16,7 +17,9 @@ const Banner1 = () => {
           Upgrade to premium speakers that are phenomenally built to deliver
           truly remarkable sound.
         </p>
-        <Button4>see product</Button4>
+        <Link href="/speakers/zx9-speaker">
+          <Button4>see product</Button4>
+        </Link>
       </div>
     </div>
   );

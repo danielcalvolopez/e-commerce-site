@@ -1,4 +1,5 @@
 import Button2 from "@/components/UI/buttons/Button2";
+import Link from "next/link";
 import classes from "./banner3.module.css";
 
 const Banner3 = () => {
@@ -10,7 +11,9 @@ const Banner3 = () => {
       />
       <div className={classes.info}>
         <h4>YX1 EARPHONES</h4>
-        <Button2>see product</Button2>
+        <Link href="/earphones/yx1-earphones">
+          <Button2>see product</Button2>
+        </Link>
       </div>
     </div>
   );
