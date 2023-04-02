@@ -1,0 +1,10 @@
+.price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price p {
+  text-transform: uppercase;
+  color: gray;
+}

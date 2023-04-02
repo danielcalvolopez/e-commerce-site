@@ -2,6 +2,8 @@ import classes from "./cart.module.css";
 import ButtonWide from "../UI/buttons/ButtonWide";
 import Backdrop from "../UI/Backdrop";
 import CartItem from "./CartItem";
+import Counter from "../UI/Counter";
+import Price from "./Price";
 
 const Cart = ({ toggleCart }) => {
   const number = 5300;
@@ -15,13 +17,16 @@ const Cart = ({ toggleCart }) => {
           <h5>cart (3)</h5>
           <p>Remove all</p>
         </div>
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <div className={classes.total}>
-          <p>TOTAL</p>
-          <h5>£ {total}</h5>
-        </div>
+        <CartItem>
+          <Counter />
+        </CartItem>
+        <CartItem>
+          <Counter />
+        </CartItem>
+        <CartItem>
+          <Counter />
+        </CartItem>
+        <Price total={total} text="total" />
         <ButtonWide>checkout</ButtonWide>
       </div>
     </>

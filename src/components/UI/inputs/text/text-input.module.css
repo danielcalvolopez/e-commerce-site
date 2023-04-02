@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 20px 0;
+}
+
+.container label {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.input {
+  height: 56px;
+  padding: 0 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(128, 128, 128, 0.527);
+  outline: none;
+  caret-color: var(--dark-orange);
+}
+
+.input::placeholder {
+  color: gray;
+}
+
+.input:focus {
+  border: 1px solid var(--dark-orange);
+}

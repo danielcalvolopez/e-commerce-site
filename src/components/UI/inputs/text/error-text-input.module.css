@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: bold;
+  color: red;
+}
+
+.header p {
+  font-weight: 400;
+}
+
+.input {
+  height: 56px;
+  padding: 0 20px;
+  border-radius: 8px;
+  border: 1.5px solid red;
+  outline: none;
+  caret-color: var(--dark-orange);
+  color: red;
+}
+
+.input::placeholder {
+  color: red;
+}

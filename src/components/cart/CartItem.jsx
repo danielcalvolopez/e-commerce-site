@@ -1,7 +1,6 @@
 import classes from "./cart-item.module.css";
-import Counter from "../UI/Counter";
 
-const CartItem = () => {
+const CartItem = ({ children }) => {
   return (
     <div className={classes["cart-item"]}>
       <div className={classes["cart-item-info"]}>
@@ -14,7 +13,7 @@ const CartItem = () => {
           <p className={classes.price}>$ 2,999</p>
         </div>
       </div>
-      <Counter />
+      {children}
     </div>
   );
 };

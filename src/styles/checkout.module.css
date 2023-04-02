@@ -1,0 +1,31 @@
+.header-bg-black {
+  background-color: black;
+  display: flex;
+}
+
+.back {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  color: gray;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.body {
+  display: flex;
+  gap: 20px;
+}
+
+.checkout,
+.summary {
+  background-color: white;
+  padding: 40px;
+  border-radius: 8px;
+}

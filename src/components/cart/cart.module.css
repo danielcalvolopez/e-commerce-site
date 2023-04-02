@@ -36,35 +36,6 @@
   color: gray;
 }
 
-.cart-items {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-}
-
-.cart-item-info {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.img {
-  border-radius: 8px;
-  width: 64px;
-}
-
-.text {
-  display: flex;
-  flex-direction: column;
-}
-
-.total {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 @media (max-width: 600px) {
   .content {
     width: 400px;
