@@ -6,12 +6,17 @@ import { useEffect, useMemo, useState } from "react";
 import ToggleMenu from "./ToggleMenu";
 import Backdrop from "../UI/Backdrop";
 import Link from "next/link";
+import Cart from "../cart/Cart";
 
 const Header = ({ className }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [toggleCart, setToggleCart] = useState(false);
 
   const handleToggleMenu = () => {
     setToggleMenu((prev) => !prev);
+  };
+  const handleToggleCart = () => {
+    setToggleCart((prev) => !prev);
   };
 
   useEffect(() => {
@@ -34,7 +39,7 @@ const Header = ({ className }) => {
   }, []);
   return (
     <div className={classes.header}>
-      {toggleMenu && <Backdrop />}
+      {toggleMenu && <Backdrop onClick={handleToggleMenu} />}
       <div className={classNames}>
         <div className={classes["burger-logo"]}>
           <GiHamburgerMenu
@@ -60,7 +65,14 @@ const Header = ({ className }) => {
             Earphones
           </Link>
         </div>
-        <AiOutlineShoppingCart className={classes.cart} size={22} />
+        <div className={classes["cart-wrapper"]}>
+          <AiOutlineShoppingCart
+            onClick={handleToggleCart}
+            className={classes.cart}
+            size={22}
+          />
+          {toggleCart && <Cart toggleCart={handleToggleCart} />}
+        </div>
       </div>
       {toggleMenu && <ToggleMenu setToggleMenu={setToggleMenu} />}
     </div>

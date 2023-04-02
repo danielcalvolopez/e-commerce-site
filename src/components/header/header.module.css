@@ -39,6 +39,12 @@
   transition: all 0.2s ease-in-out;
 }
 
+.cart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 950px) {
   .header-container {
     padding: 0 40px;

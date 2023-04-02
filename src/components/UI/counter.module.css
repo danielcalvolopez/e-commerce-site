@@ -27,3 +27,7 @@
   cursor: pointer;
   padding: 4px;
 }
+
+.symbol:hover {
+  color: var(--dark-orange);
+}
