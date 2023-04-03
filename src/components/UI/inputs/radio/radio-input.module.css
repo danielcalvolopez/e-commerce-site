@@ -10,8 +10,41 @@
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
+  background-color: transparent;
+  z-index: 100;
+}
+
+.content input {
+  visibility: hidden;
+}
+
+.content label {
+  z-index: -10;
+  padding-left: 37px;
 }
 
 .content:hover {
+  border: 1px solid var(--dark-orange);
+}
+
+.custom-radio {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(128, 128, 128, 0.527);
+  border-radius: 50%;
+}
+
+.custom-radio-fill {
+  position: absolute;
+  top: 25%;
+  left: 20%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--dark-orange);
+}
+
+.checked {
   border: 1px solid var(--dark-orange);
 }

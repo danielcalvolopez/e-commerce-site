@@ -1,10 +1,16 @@
 import classes from "./radio-input.module.css";
 
-const RadioInput = ({ label, onChange, value }) => {
+const RadioInput = ({ id, onClick, label, checked }) => {
   return (
-    <div className={classes.content}>
-      <input type="radio" onChange={onChange} value={value} />
+    <div
+      id={id}
+      onClick={onClick}
+      className={`${classes.content} ${checked && classes.checked}`}
+    >
       <label htmlFor="">{label}</label>
+      <div className={classes["custom-radio"]}>
+        {checked && <span className={classes["custom-radio-fill"]} />}
+      </div>
     </div>
   );
 };
