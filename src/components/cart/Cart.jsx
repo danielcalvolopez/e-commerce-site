@@ -6,9 +6,6 @@ import Counter from "../UI/Counter";
 import Price from "./Price";
 
 const Cart = ({ toggleCart }) => {
-  const number = 5300;
-  const total = number.toLocaleString("en-US");
-
   return (
     <>
       <Backdrop onClick={toggleCart} />

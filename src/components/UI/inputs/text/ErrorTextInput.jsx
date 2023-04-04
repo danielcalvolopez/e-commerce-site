@@ -1,6 +1,6 @@
 import classes from "./error-text-input.module.css";
 
-const TextInput = ({ placeholder, onChange, value, label, error }) => {
+const ErrorTextInput = ({ placeholder, onChange, value, label, error }) => {
   return (
     <div className={classes.container}>
       <div className={classes.header}>
@@ -18,4 +18,4 @@ const TextInput = ({ placeholder, onChange, value, label, error }) => {
   );
 };
 
-export default TextInput;
+export default ErrorTextInput;

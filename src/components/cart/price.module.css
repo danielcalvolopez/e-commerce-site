@@ -8,3 +8,7 @@
   text-transform: uppercase;
   color: gray;
 }
+
+.color {
+  color: var(--dark-orange);
+}
