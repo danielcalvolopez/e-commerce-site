@@ -23,7 +23,7 @@ const Cart = ({ toggleCart }) => {
         <CartItem>
           <Counter />
         </CartItem>
-        <Price total={total} text="total" />
+        <Price total={5396} text="total" />
         <ButtonWide>checkout</ButtonWide>
       </div>
     </>
