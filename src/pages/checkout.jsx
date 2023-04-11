@@ -1,5 +1,6 @@
 import Checkout from "@/components/checkout/Checkout";
 import Summary from "@/components/checkout/Summary";
+import ThanksModal from "@/components/checkout/ThanksModal";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import MainContent from "@/components/UI/MainContent";
@@ -10,6 +11,7 @@ const checkout = () => {
     <>
       <Header className={classes["header-bg-black"]} />
       <MainContent bgGray>
+        <ThanksModal />
         <div className={classes.content}>
           <div className={classes.back}>
             <p>Go Back</p>

@@ -12,3 +12,9 @@
 .color {
   color: var(--dark-orange);
 }
+
+.flex {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
