@@ -4,6 +4,7 @@ import Backdrop from "../UI/Backdrop";
 import CartItem from "./CartItem";
 import Counter from "../UI/Counter";
 import Price from "./Price";
+import Link from "next/link";
 
 const Cart = ({ toggleCart }) => {
   return (
@@ -24,7 +25,9 @@ const Cart = ({ toggleCart }) => {
           <Counter />
         </CartItem>
         <Price total={5396} text="total" />
-        <ButtonWide>checkout</ButtonWide>
+        <Link href="/checkout">
+          <ButtonWide>checkout</ButtonWide>
+        </Link>
       </div>
     </>
   );
