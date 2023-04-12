@@ -1,4 +1,5 @@
 .content {
+  position: relative;
   display: flex;
   justify-content: left;
   align-items: center;
@@ -11,7 +12,6 @@
   font-weight: bold;
   cursor: pointer;
   background-color: transparent;
-  z-index: 100;
 }
 
 .content input {
@@ -19,8 +19,8 @@
 }
 
 .content label {
-  z-index: -10;
   padding-left: 37px;
+  cursor: pointer;
 }
 
 .content:hover {
@@ -33,11 +33,12 @@
   height: 20px;
   border: 1px solid rgba(128, 128, 128, 0.527);
   border-radius: 50%;
+  z-index: -10;
 }
 
 .custom-radio-fill {
   position: absolute;
-  top: 22%;
+  top: 25%;
   left: 22%;
   width: 10px;
   height: 10px;
