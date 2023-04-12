@@ -1,4 +1,4 @@
-import classes from "./thanks-modal.module.css";
+import classes from "./order-confirmation-modal.module.css";
 import Backdrop from "../UI/Backdrop";
 import ButtonWide from "../UI/buttons/ButtonWide";
 import Image from "next/image";
@@ -21,8 +21,10 @@ const ThanksModal = () => {
             <CartItem>
               <span>x1</span>
             </CartItem>
+
             <div className={classes.break} />
             <p className={classes.other}>and 2 other item(s)</p>
+            {/* <p className={classes.other}>View less</p> */}
           </div>
 
           <div className={classes.price}>
