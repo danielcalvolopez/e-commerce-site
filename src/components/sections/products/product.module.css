@@ -55,13 +55,13 @@
     gap: 70px;
   }
 
-  .img {
+  .img,
+  .info {
     width: 100%;
   }
 
   .info {
     align-items: center;
-    width: 60%;
   }
 }
 
@@ -76,6 +76,18 @@
   }
 
   .info {
-    width: 80%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1370px) and (min-width: 1200px) {
+  .container,
+  .container-reverse {
+    width: 100%;
+  }
+
+  .img,
+  .info {
+    width: 50%;
   }
 }
