@@ -23,7 +23,7 @@ const Summary = () => {
         <Price text="shipping" total={50} />
         <Price text="vat (included)" total={1079} />
       </div>
-      <Price color text="total" total={5446} />
+      <Price color text="grand total" total={5446} />
 
       <ButtonWide>continue & pay</ButtonWide>
     </div>
