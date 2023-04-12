@@ -9,7 +9,7 @@ const Cart = ({ toggleCart }) => {
   return (
     <>
       <Backdrop onClick={toggleCart} />
-      <div className={classes.content} btnText="checkout">
+      <div className={classes.content} btntext="checkout">
         <div className={classes.header}>
           <h5>cart (3)</h5>
           <p>Remove all</p>

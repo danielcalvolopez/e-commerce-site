@@ -1,11 +1,11 @@
 .content {
-  position: absolute;
+  position: fixed;
   margin-left: auto;
   margin-right: auto;
-  width: 500px;
   top: 10%;
   left: 0;
   right: 0;
+  width: 500px;
   background-color: white;
   display: flex;
   flex-direction: column;
