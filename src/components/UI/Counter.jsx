@@ -1,11 +1,15 @@
+import { addToCart } from "@/redux/features/cartSlice";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import classes from "./counter.module.css";
 
-const Counter = () => {
+const Counter = ({ data }) => {
   const [currentNumber, setCurrentNumber] = useState(1);
+  const dispatch = useDispatch();
 
-  const handleIncrease = () => {
+  const handleIncrease = (data) => {
     setCurrentNumber((prev) => prev + 1);
+    dispatch(addToCart(data));
   };
 
   const handleDecrease = () => {
@@ -21,7 +25,7 @@ const Counter = () => {
         -
       </p>
       <p className={classes.number}>{currentNumber}</p>
-      <p onClick={handleIncrease} className={classes.symbol}>
+      <p onClick={() => handleIncrease(data)} className={classes.symbol}>
         +
       </p>
     </div>

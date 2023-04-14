@@ -14,13 +14,19 @@ import ProductCategories from "@/components/sections/product-categories/ProductC
 import Banner4 from "@/components/sections/banners/Banner4";
 import Footer from "@/components/footer/Footer";
 import ProductSuggestions from "@/components/sections/products/product-page/product-suggestions/ProductSuggestions";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/redux/features/cartSlice";
 
 const ProductDetails = ({ data }) => {
   const router = useRouter();
-
+  const dispatch = useDispatch();
   const [product, setProduct] = useState({});
 
   const products = data;
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
 
   useEffect(() => {
     if (router.query.productDetails) {
@@ -40,8 +46,10 @@ const ProductDetails = ({ data }) => {
           name={product?.name}
           description={product?.description}
         >
-          <Counter />
-          <Button1>add to cart</Button1>
+          <Counter data={product} />
+          <Button1 onClick={() => handleAddToCart(product)}>
+            add to cart
+          </Button1>
         </Product>
         <ProductInfo
           features={product?.features}

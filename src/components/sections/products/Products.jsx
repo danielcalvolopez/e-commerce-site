@@ -10,11 +10,11 @@ const Products = ({ data, category }) => {
       return 1;
     }
   };
-  const sortedData = data.sort(newFirstSort);
+  const sortedData = data?.sort(newFirstSort);
 
   return (
     <div className={classes.container}>
-      {sortedData.map((product) => {
+      {sortedData?.map((product) => {
         const section = product.category === category;
         return (
           section && (
