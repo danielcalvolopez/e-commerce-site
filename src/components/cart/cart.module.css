@@ -5,7 +5,7 @@
   top: 10%;
   left: 0;
   right: 0;
-  width: 500px;
+  width: 530px;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -35,6 +35,12 @@
 .total p {
   text-transform: uppercase;
   color: gray;
+}
+
+.empty {
+  text-align: center;
+  color: gray;
+  letter-spacing: 1px;
 }
 
 @media (max-width: 600px) {

@@ -46,7 +46,7 @@ const ProductDetails = ({ data }) => {
           name={product?.name}
           description={product?.description}
         >
-          <Counter data={product} />
+          <Counter />
           <Button1 onClick={() => handleAddToCart(product)}>
             add to cart
           </Button1>

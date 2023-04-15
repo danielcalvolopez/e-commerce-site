@@ -5,29 +5,40 @@ import CartItem from "./CartItem";
 import Counter from "../UI/Counter";
 import Price from "./Price";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const Cart = ({ toggleCart }) => {
+  const cart = useSelector((state) => state.cart);
+
   return (
     <>
       <Backdrop onClick={toggleCart} />
       <div className={classes.content} btntext="checkout">
         <div className={classes.header}>
-          <h5>cart (3)</h5>
+          <h5>cart ({cart.cartItems.length})</h5>
           <p>Remove all</p>
         </div>
-        <CartItem>
-          <Counter />
-        </CartItem>
-        <CartItem>
-          <Counter />
-        </CartItem>
-        <CartItem>
-          <Counter />
-        </CartItem>
-        <Price total={5396} text="total" />
-        <Link href="/checkout">
-          <ButtonWide>checkout</ButtonWide>
-        </Link>
+
+        {cart.cartItems.length === 0 ? (
+          <p className={classes.empty}>Cart is empty.</p>
+        ) : (
+          cart.cartItems.map((item) => (
+            <CartItem
+              price={item.price}
+              name={item.name}
+              image={item.image.desktop}
+            >
+              <Counter />
+            </CartItem>
+          ))
+        )}
+
+        {cart.cartItems.length > 0 && <Price total={5396} text="total" />}
+        {cart.cartItems.length > 0 && (
+          <Link href="/checkout">
+            <ButtonWide>checkout</ButtonWide>
+          </Link>
+        )}
       </div>
     </>
   );

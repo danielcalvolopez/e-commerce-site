@@ -4,7 +4,7 @@
   align-items: center;
   gap: 10px;
   background-color: var(--gray);
-  width: 110px;
+  width: 80px;
   height: 48px;
   font-size: 15px;
   -webkit-touch-callout: none;
@@ -17,7 +17,6 @@
 
 .number {
   color: black;
-  margin: 3px;
   width: 15px;
   text-align: center;
 }
@@ -25,7 +24,6 @@
 .symbol {
   color: gray;
   cursor: pointer;
-  padding: 4px;
 }
 
 .symbol:hover {
