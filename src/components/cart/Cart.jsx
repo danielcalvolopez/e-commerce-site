@@ -33,11 +33,13 @@ const Cart = ({ toggleCart }) => {
           ))
         )}
 
-        {cart.cartItems.length > 0 && <Price total={5396} text="total" />}
         {cart.cartItems.length > 0 && (
-          <Link href="/checkout">
-            <ButtonWide>checkout</ButtonWide>
-          </Link>
+          <>
+            <Price total={5396} text="total" />
+            <Link href="/checkout">
+              <ButtonWide>checkout</ButtonWide>
+            </Link>
+          </>
         )}
       </div>
     </>
