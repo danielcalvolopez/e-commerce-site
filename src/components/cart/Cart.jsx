@@ -15,15 +15,16 @@ const Cart = ({ toggleCart }) => {
       <Backdrop onClick={toggleCart} />
       <div className={classes.content} btntext="checkout">
         <div className={classes.header}>
-          <h5>cart ({cart.cartItems.length})</h5>
+          <h5>cart ({cart?.cartItems.length})</h5>
           <p>Remove all</p>
         </div>
 
-        {cart.cartItems.length === 0 ? (
+        {cart?.cartItems.length === 0 ? (
           <p className={classes.empty}>Cart is empty.</p>
         ) : (
-          cart.cartItems.map((item) => (
+          cart?.cartItems.map((item) => (
             <CartItem
+              key={item.id}
               price={item.price}
               name={item.name}
               image={item.image.desktop}
@@ -33,7 +34,7 @@ const Cart = ({ toggleCart }) => {
           ))
         )}
 
-        {cart.cartItems.length > 0 && (
+        {cart?.cartItems.length > 0 && (
           <>
             <Price total={5396} text="total" />
             <Link href="/checkout">
