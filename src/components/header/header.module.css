@@ -45,6 +45,21 @@
   align-items: center;
 }
 
+.quantity {
+  display: flex;
+  align-items: center;
+  top: 4.5%;
+  right: 12.5%;
+  justify-content: center;
+  font-size: 12px;
+  position: absolute;
+  background-color: var(--dark-orange);
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
 @media (max-width: 950px) {
   .header-container {
     padding: 0 40px;

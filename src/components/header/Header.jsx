@@ -7,10 +7,12 @@ import ToggleMenu from "./ToggleMenu";
 import Backdrop from "../UI/Backdrop";
 import Link from "next/link";
 import Cart from "../cart/Cart";
+import { useSelector } from "react-redux";
 
 const Header = ({ className }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [toggleCart, setToggleCart] = useState(false);
+  const cart = useSelector((state) => state.cart);
 
   const handleToggleMenu = () => {
     setToggleMenu((prev) => !prev);
@@ -71,6 +73,11 @@ const Header = ({ className }) => {
             className={classes.cart}
             size={22}
           />
+          {cart.cartItems.length > 0 && (
+            <span onClick={handleToggleCart} className={classes.quantity}>
+              {cart.cartItems.length}
+            </span>
+          )}
           {toggleCart && <Cart toggleCart={handleToggleCart} />}
         </div>
       </div>
