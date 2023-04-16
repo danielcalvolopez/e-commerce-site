@@ -5,10 +5,17 @@ import CartItem from "./CartItem";
 import Counter from "../UI/Counter";
 import Price from "./Price";
 import Link from "next/link";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart } from "../../redux/features/cartSlice";
 
 const Cart = ({ toggleCart }) => {
   const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
+    toggleCart();
+  };
 
   return (
     <>
@@ -16,7 +23,9 @@ const Cart = ({ toggleCart }) => {
       <div className={classes.content} btntext="checkout">
         <div className={classes.header}>
           <h5>cart ({cart?.cartItems.length})</h5>
-          <p>Remove all</p>
+          {cart?.cartItems.length > 0 && (
+            <p onClick={() => handleClearCart()}>Remove all</p>
+          )}
         </div>
 
         {cart?.cartItems.length === 0 ? (
