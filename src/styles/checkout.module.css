@@ -8,8 +8,11 @@
   display: flex;
   justify-content: left;
   color: gray;
-  cursor: pointer;
   margin-bottom: 30px;
+}
+
+.back p {
+  cursor: pointer;
 }
 
 .content {

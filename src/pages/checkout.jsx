@@ -15,8 +15,8 @@ const checkout = () => {
       <MainContent bgGray>
         {/* <OrderConfirmationModal /> */}
         <div className={classes.content}>
-          <div onClick={() => router.back()} className={classes.back}>
-            <p>Go Back</p>
+          <div className={classes.back}>
+            <p onClick={() => router.back()}>Go Back</p>
           </div>
           <div className={classes["body"]}>
             <Checkout />

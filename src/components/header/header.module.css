@@ -8,16 +8,16 @@
   width: 100%;
 }
 
+.cart {
+  cursor: pointer;
+}
+
 .header-container .burger-logo {
   display: flex;
 }
 
 .header-container .burger {
   display: none;
-}
-
-.header-container .cart {
-  cursor: pointer;
 }
 
 .header-container .menu {
