@@ -25,3 +25,13 @@
   font-size: 14px;
   color: gray;
 }
+
+.remove {
+  font-size: 12px;
+  color: gray;
+  cursor: pointer;
+}
+
+.remove:hover {
+  text-decoration: underline;
+}

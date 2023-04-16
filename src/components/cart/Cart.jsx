@@ -6,7 +6,11 @@ import Counter from "../UI/Counter";
 import Price from "./Price";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart } from "../../redux/features/cartSlice";
+import {
+  addToCart,
+  clearCart,
+  removeFromCart,
+} from "../../redux/features/cartSlice";
 
 const Cart = ({ toggleCart }) => {
   const cart = useSelector((state) => state.cart);
@@ -15,6 +19,14 @@ const Cart = ({ toggleCart }) => {
   const handleClearCart = () => {
     dispatch(clearCart());
     toggleCart();
+  };
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
+
+  const handleRemoveFromCart = (product) => {
+    dispatch(removeFromCart(product));
   };
 
   return (
@@ -33,12 +45,18 @@ const Cart = ({ toggleCart }) => {
         ) : (
           cart?.cartItems.map((item) => (
             <CartItem
+              cart
               key={item.id}
               price={item.price}
               name={item.name}
               image={item.image.desktop}
+              removeFromCart={() => handleRemoveFromCart(item)}
             >
-              <Counter />
+              <Counter
+                addToCart={() => handleAddToCart(item)}
+                cart
+                quantity={item.cartQuantity}
+              />
             </CartItem>
           ))
         )}

@@ -1,6 +1,6 @@
 import classes from "./cart-item.module.css";
 
-const CartItem = ({ children, price, name, image }) => {
+const CartItem = ({ children, price, name, image, cart, removeFromCart }) => {
   const itemName = name?.split(" ");
   itemName?.pop();
   const finalName = itemName?.join(" ");
@@ -14,6 +14,11 @@ const CartItem = ({ children, price, name, image }) => {
         <div className={classes.text}>
           <h6>{finalName}</h6>
           <p className={classes.price}>£ {priceFormat}</p>
+          {cart && (
+            <p onClick={removeFromCart} className={classes.remove}>
+              Remove
+            </p>
+          )}
         </div>
       </div>
       {children}

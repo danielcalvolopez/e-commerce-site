@@ -6,6 +6,8 @@ import classes from "./summary.module.css";
 
 const Summary = () => {
   const cart = useSelector((state) => state.cart);
+
+  console.log(cart.cartItems);
   return (
     <div className={classes.summary}>
       <h6>summary</h6>
@@ -16,7 +18,7 @@ const Summary = () => {
             name={item.name}
             image={item.image.desktop}
           >
-            <span>x1</span>
+            <span>x{item.cartQuantity}</span>
           </CartItem>
         ))}
       </div>

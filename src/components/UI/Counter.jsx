@@ -1,11 +1,17 @@
 import { useState } from "react";
 import classes from "./counter.module.css";
 
-const Counter = () => {
+const Counter = ({ quantity, cart, addToCart }) => {
   const [currentNumber, setCurrentNumber] = useState(1);
 
   const handleIncrease = () => {
+    if (currentNumber > 20) {
+      return;
+    }
     setCurrentNumber((prev) => prev + 1);
+    if (cart) {
+      addToCart();
+    }
   };
 
   const handleDecrease = () => {
@@ -20,7 +26,7 @@ const Counter = () => {
       <p onClick={handleDecrease} className={classes.symbol}>
         -
       </p>
-      <p className={classes.number}>{currentNumber}</p>
+      <p className={classes.number}>{cart ? quantity : currentNumber}</p>
       <p onClick={handleIncrease} className={classes.symbol}>
         +
       </p>
