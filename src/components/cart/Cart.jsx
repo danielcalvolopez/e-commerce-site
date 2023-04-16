@@ -11,6 +11,7 @@ import {
   clearCart,
   removeFromCart,
 } from "../../redux/features/cartSlice";
+import { useEffect } from "react";
 
 const Cart = ({ toggleCart }) => {
   const cart = useSelector((state) => state.cart);
@@ -21,13 +22,19 @@ const Cart = ({ toggleCart }) => {
     toggleCart();
   };
 
-  const handleAddToCart = (product) => {
+  const handleIncreaseQuantity = (product) => {
     dispatch(addToCart(product));
   };
 
   const handleRemoveFromCart = (product) => {
     dispatch(removeFromCart(product));
   };
+
+  useEffect(() => {
+    if (cart.cartItems.length === 0) {
+      toggleCart();
+    }
+  }, [cart.cartItems.length]);
 
   return (
     <>
@@ -45,6 +52,7 @@ const Cart = ({ toggleCart }) => {
         ) : (
           cart?.cartItems.map((item) => (
             <CartItem
+              toggleCart
               cart
               key={item.id}
               price={item.price}
@@ -53,7 +61,7 @@ const Cart = ({ toggleCart }) => {
               removeFromCart={() => handleRemoveFromCart(item)}
             >
               <Counter
-                addToCart={() => handleAddToCart(item)}
+                addToCart={() => handleIncreaseQuantity(item)}
                 cart
                 quantity={item.cartQuantity}
               />
