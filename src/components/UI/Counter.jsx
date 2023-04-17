@@ -1,24 +1,34 @@
-import { useState } from "react";
+import {
+  decrement,
+  increment,
+  selectCount,
+} from "@/redux/features/counterSlice";
+import { useDispatch, useSelector } from "react-redux";
 import classes from "./counter.module.css";
 
-const Counter = ({ quantity, cart, addToCart }) => {
-  const [currentNumber, setCurrentNumber] = useState(1);
+const Counter = ({ quantity, cart, increaseCart, decreaseCart }) => {
+  const counter = useSelector(selectCount);
+  const dispatch = useDispatch();
 
   const handleIncrease = () => {
-    if (currentNumber > 20) {
+    if (counter > 20) {
       return;
     }
-    setCurrentNumber((prev) => prev + 1);
+    dispatch(increment());
     if (cart) {
-      addToCart();
+      increaseCart();
     }
   };
 
   const handleDecrease = () => {
-    if (currentNumber === 1) {
+    if (!cart && counter === 1) {
       return;
     }
-    setCurrentNumber((prev) => prev - 1);
+    dispatch(decrement());
+
+    if (cart) {
+      decreaseCart();
+    }
   };
 
   return (
@@ -26,7 +36,7 @@ const Counter = ({ quantity, cart, addToCart }) => {
       <p onClick={handleDecrease} className={classes.symbol}>
         -
       </p>
-      <p className={classes.number}>{cart ? quantity : currentNumber}</p>
+      <p className={classes.number}>{cart ? quantity : counter}</p>
       <p onClick={handleIncrease} className={classes.symbol}>
         +
       </p>

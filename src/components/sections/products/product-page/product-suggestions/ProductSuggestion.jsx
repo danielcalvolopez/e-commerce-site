@@ -8,11 +8,11 @@ const ProductSuggestion = ({ image, slug, name }) => {
   const router = useRouter();
 
   const imgSrc = () => {
-    if (size > 1200) {
+    if (size > 1370) {
       return image.desktop;
     }
 
-    if (size < 1200 && size > 800) {
+    if (size < 1370 && size > 800) {
       return image.tablet;
     }
 

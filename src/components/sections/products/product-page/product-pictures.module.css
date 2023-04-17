@@ -42,3 +42,13 @@
     width: 100%;
   }
 }
+
+@media (max-width: 1370px) and (min-width: 1200px) {
+  .container {
+    width: 100%;
+  }
+
+  .img {
+    width: 100%;
+  }
+}

@@ -4,9 +4,11 @@ import cartReducer from "./features/cartSlice";
 import { persistReducer } from "redux-persist";
 import { combineReducers } from "@reduxjs/toolkit";
 import { persistConfig } from "./persistConfig";
+import counterReducer from "./features/counterSlice";
 
 const reducer = combineReducers({
   cart: cartReducer,
+  counter: counterReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);

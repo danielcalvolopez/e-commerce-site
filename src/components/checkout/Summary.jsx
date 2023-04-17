@@ -14,6 +14,7 @@ const Summary = () => {
       <div className={classes.items}>
         {cart.cartItems.map((item) => (
           <CartItem
+            key={item.id}
             price={item.price}
             name={item.name}
             image={item.image.desktop}

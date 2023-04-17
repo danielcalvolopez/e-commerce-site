@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   addToCart,
   clearCart,
+  decreaseCart,
   removeFromCart,
 } from "../../redux/features/cartSlice";
 import { useEffect } from "react";
@@ -24,6 +25,10 @@ const Cart = ({ toggleCart }) => {
 
   const handleIncreaseQuantity = (product) => {
     dispatch(addToCart(product));
+  };
+
+  const handleDecreaseQuantity = (product) => {
+    dispatch(decreaseCart(product));
   };
 
   const handleRemoveFromCart = (product) => {
@@ -61,7 +66,8 @@ const Cart = ({ toggleCart }) => {
               removeFromCart={() => handleRemoveFromCart(item)}
             >
               <Counter
-                addToCart={() => handleIncreaseQuantity(item)}
+                increaseCart={() => handleIncreaseQuantity(item)}
+                decreaseCart={() => handleDecreaseQuantity(item)}
                 cart
                 quantity={item.cartQuantity}
               />
