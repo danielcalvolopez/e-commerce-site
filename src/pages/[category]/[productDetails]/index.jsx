@@ -14,18 +14,20 @@ import ProductCategories from "@/components/sections/product-categories/ProductC
 import Banner4 from "@/components/sections/banners/Banner4";
 import Footer from "@/components/footer/Footer";
 import ProductSuggestions from "@/components/sections/products/product-page/product-suggestions/ProductSuggestions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "@/redux/features/cartSlice";
+import { selectCount } from "@/redux/features/counterSlice";
 
 const ProductDetails = ({ data }) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const [product, setProduct] = useState({});
+  const counter = useSelector(selectCount);
 
   const products = data;
 
   const handleAddToCart = (product) => {
-    dispatch(addToCart(product));
+    dispatch(addToCart([product, counter]));
   };
 
   useEffect(() => {

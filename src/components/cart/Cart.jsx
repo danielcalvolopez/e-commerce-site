@@ -62,7 +62,7 @@ const Cart = ({ toggleCart }) => {
               key={item.id}
               price={item.price}
               name={item.name}
-              image={item.image.desktop}
+              image={item.image?.desktop}
               removeFromCart={() => handleRemoveFromCart(item)}
             >
               <Counter
