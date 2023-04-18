@@ -10,12 +10,18 @@ const counterSlice = createSlice({
       state.currentNumber += 1;
     },
     decrement: (state) => {
+      if (state.currentNumber === 1) {
+        return;
+      }
       state.currentNumber -= 1;
+    },
+    reset: (state) => {
+      state.currentNumber = 1;
     },
   },
 });
 
-export const { increment, decrement } = counterSlice.actions;
+export const { increment, decrement, reset } = counterSlice.actions;
 
 export const selectCount = (state) => state.counter.currentNumber;
 

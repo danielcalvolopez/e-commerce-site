@@ -2,7 +2,6 @@ import classes from "./cart.module.css";
 import ButtonWide from "../UI/buttons/ButtonWide";
 import Backdrop from "../UI/Backdrop";
 import CartItem from "./CartItem";
-import Counter from "../UI/Counter";
 import Price from "./Price";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,6 +12,7 @@ import {
   removeFromCart,
 } from "../../redux/features/cartSlice";
 import { useEffect } from "react";
+import Counter from "../UI/Counter";
 
 const Cart = ({ toggleCart }) => {
   const cart = useSelector((state) => state.cart);

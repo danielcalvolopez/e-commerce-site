@@ -15,8 +15,8 @@ import Banner4 from "@/components/sections/banners/Banner4";
 import Footer from "@/components/footer/Footer";
 import ProductSuggestions from "@/components/sections/products/product-page/product-suggestions/ProductSuggestions";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "@/redux/features/cartSlice";
-import { selectCount } from "@/redux/features/counterSlice";
+import { addCustomAmountToCart } from "@/redux/features/cartSlice";
+import { reset, selectCount } from "@/redux/features/counterSlice";
 
 const ProductDetails = ({ data }) => {
   const router = useRouter();
@@ -27,7 +27,8 @@ const ProductDetails = ({ data }) => {
   const products = data;
 
   const handleAddToCart = (product) => {
-    dispatch(addToCart([product, counter]));
+    dispatch(addCustomAmountToCart([product, counter]));
+    dispatch(reset());
   };
 
   useEffect(() => {

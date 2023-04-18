@@ -6,7 +6,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import classes from "./counter.module.css";
 
-const Counter = ({ quantity, cart, increaseCart, decreaseCart }) => {
+const Counter = ({ cart, increaseCart, decreaseCart, quantity }) => {
   const counter = useSelector(selectCount);
   const dispatch = useDispatch();
 
@@ -14,21 +14,11 @@ const Counter = ({ quantity, cart, increaseCart, decreaseCart }) => {
     if (counter > 20) {
       return;
     }
-    dispatch(increment());
-    if (cart) {
-      increaseCart();
-    }
+    cart ? increaseCart() : dispatch(increment());
   };
 
   const handleDecrease = () => {
-    if (!cart && counter === 1) {
-      return;
-    }
-    dispatch(decrement());
-
-    if (cart) {
-      decreaseCart();
-    }
+    cart ? decreaseCart() : dispatch(decrement());
   };
 
   return (
