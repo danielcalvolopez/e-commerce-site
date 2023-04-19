@@ -20,6 +20,12 @@
   color: gray;
 }
 
+.empty {
+  text-align: center;
+  color: gray;
+  letter-spacing: 1px;
+}
+
 .price-breakdown {
   display: flex;
   flex-direction: column;

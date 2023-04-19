@@ -9,6 +9,7 @@ import {
   addToCart,
   clearCart,
   decreaseCart,
+  getTotals,
   removeFromCart,
 } from "../../redux/features/cartSlice";
 import { useEffect } from "react";
@@ -17,6 +18,10 @@ import Counter from "../UI/Counter";
 const Cart = ({ toggleCart }) => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cart]);
 
   const handleClearCart = () => {
     dispatch(clearCart());
@@ -77,7 +82,7 @@ const Cart = ({ toggleCart }) => {
 
         {cart?.cartItems.length > 0 && (
           <>
-            <Price total={5396} text="total" />
+            <Price total={cart.cartTotalAmount} text="total" />
             <Link href="/checkout">
               <ButtonWide>checkout</ButtonWide>
             </Link>
