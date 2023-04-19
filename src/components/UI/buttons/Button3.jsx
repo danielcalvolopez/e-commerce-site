@@ -1,5 +1,5 @@
 import classes from "./button-3.module.css";
-import Button from "./button";
+import Button from "./Button";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 const Button3 = ({ children, onSubmit, onClick }) => {

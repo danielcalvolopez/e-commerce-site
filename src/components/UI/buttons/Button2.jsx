@@ -1,5 +1,5 @@
 import classes from "./button-2.module.css";
-import Button from "./button";
+import Button from "./Button";
 
 const Button2 = ({ children, onSubmit, onClick }) => {
   return (
