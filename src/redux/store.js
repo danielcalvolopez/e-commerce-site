@@ -3,8 +3,14 @@ import { productsApi } from "./features/productsApi";
 import cartReducer from "./features/cartSlice";
 import { persistReducer } from "redux-persist";
 import { combineReducers } from "@reduxjs/toolkit";
-import { persistConfig } from "./persistConfig";
 import counterReducer from "./features/counterSlice";
+import storage from "redux-persist/lib/storage";
+
+const persistConfig = {
+  key: "root",
+  varsion: 1,
+  storage,
+};
 
 const reducer = combineReducers({
   cart: cartReducer,
@@ -16,6 +22,8 @@ const persistedReducer = persistReducer(persistConfig, reducer);
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(productsApi.middleware);
+    return getDefaultMiddleware({
+      serializableCheck: false,
+    });
   },
 });
