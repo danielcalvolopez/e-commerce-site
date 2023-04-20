@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import NumberInput from "../UI/inputs/number/NumberInput";
 import RadioInput from "../UI/inputs/radio/RadioInput";
 import TextInput from "../UI/inputs/text/TextInput";
@@ -35,7 +36,7 @@ const Checkout = () => {
       </div>
 
       <div className={classes.billing}>
-        <label className={classes.title}>shipping info</label>
+        <label className={classes.title}>payment details</label>
         <div className={classes.payment}>
           <p>Payment Method</p>
           <div className={classes.radio}>

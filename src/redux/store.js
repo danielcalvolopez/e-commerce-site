@@ -5,6 +5,7 @@ import { persistReducer } from "redux-persist";
 import { combineReducers } from "@reduxjs/toolkit";
 import counterReducer from "./features/counterSlice";
 import storage from "redux-persist/lib/storage";
+import orderReducer from "./features/orderSlice";
 
 const persistConfig = {
   key: "root",
@@ -15,6 +16,7 @@ const persistConfig = {
 const reducer = combineReducers({
   cart: cartReducer,
   counter: counterReducer,
+  order: orderReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);
