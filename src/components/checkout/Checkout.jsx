@@ -1,37 +1,76 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
 import NumberInput from "../UI/inputs/number/NumberInput";
 import RadioInput from "../UI/inputs/radio/RadioInput";
 import TextInput from "../UI/inputs/text/TextInput";
 import classes from "./checkout.module.css";
 
-const Checkout = () => {
-  const [payment, setPayment] = useState("e-Money");
-
-  const handleChangePayment = (event) => {
-    setPayment(event.target.id);
-  };
-
+const Checkout = ({
+  handleChangeInput,
+  handleChangePayment,
+  order,
+  payment,
+}) => {
   return (
-    <div className={classes.checkout}>
+    <form className={classes.checkout}>
       <h3>checkout</h3>
 
       <div className={classes.billing}>
         <label className={classes.title}>billing details</label>
         <div className={classes["billing-inputs"]}>
-          <TextInput label="name" placeholder="John Doe" />
-          <TextInput label="email address" placeholder="johndoe@gmail.com" />
-          <NumberInput label="phone number" placeholder="07654321098" />
+          <TextInput
+            onChange={handleChangeInput}
+            value={order.name}
+            label="name"
+            placeholder="John Doe"
+            name="name"
+          />
+          <TextInput
+            onChange={handleChangeInput}
+            value={order.email}
+            label="email address"
+            placeholder="johndoe@gmail.com"
+            name="email"
+          />
+          <NumberInput
+            onChange={handleChangeInput}
+            value={order.phone}
+            label="phone number"
+            placeholder="07654321098"
+            name="phone"
+          />
         </div>
       </div>
 
       <div className={classes.billing}>
         <label className={classes.title}>shipping info</label>
-        <TextInput label="address" placeholder="10 Downing Street" />
+        <TextInput
+          onChange={handleChangeInput}
+          value={order.address}
+          label="address"
+          placeholder="10 Downing Street"
+          name="address"
+        />
         <div className={classes["billing-inputs"]}>
-          <TextInput label="ZIP code" placeholder="W9 4HG" />
-          <TextInput label="city" placeholder="London" />
-          <TextInput label="country" placeholder="United Kingdom" />
+          <TextInput
+            onChange={handleChangeInput}
+            value={order.postCode}
+            label="ZIP code"
+            placeholder="W9 4HG"
+            name="postCode"
+          />
+          <TextInput
+            onChange={handleChangeInput}
+            value={order.city}
+            label="city"
+            placeholder="London"
+            name="city"
+          />
+          <TextInput
+            onChange={handleChangeInput}
+            value={order.country}
+            label="country"
+            placeholder="United Kingdom"
+            name="country"
+          />
         </div>
       </div>
 
@@ -55,11 +94,23 @@ const Checkout = () => {
           </div>
         </div>
         <div className={classes["billing-inputs"]}>
-          <NumberInput label="e-Money Number" placeholder="238521993" />
-          <NumberInput label="e-Money PIN" placeholder="6891" />
+          <NumberInput
+            onChange={handleChangeInput}
+            value={order.eNumber}
+            label="e-Money Number"
+            placeholder="238521993"
+            name="eNumber"
+          />
+          <NumberInput
+            value={order.ePin}
+            onChange={handleChangeInput}
+            label="e-Money PIN"
+            placeholder="6891"
+            name="ePin"
+          />
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 

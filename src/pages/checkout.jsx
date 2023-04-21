@@ -6,7 +6,7 @@ import Header from "@/components/header/Header";
 import MainContent from "@/components/UI/MainContent";
 import classes from "../styles/checkout.module.css";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const checkout = () => {
@@ -18,6 +18,31 @@ const checkout = () => {
       router.push("/");
     }
   }, [cart.cartItems.length]);
+
+  const [payment, setPayment] = useState("e-Money");
+  const [order, setOrder] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    postCode: "",
+    city: "",
+    country: "",
+    eNumber: "",
+    ePin: "",
+    orderItems: [],
+  });
+
+  const handleChangeInput = (event) => {
+    setOrder((state) => ({
+      ...state,
+      [event.target.name]: event.target.value,
+    }));
+  };
+
+  const handleChangePayment = (event) => {
+    setPayment(event.target.id);
+  };
   return (
     <>
       <Header className={classes["header-bg-black"]} />
@@ -28,7 +53,12 @@ const checkout = () => {
             <p onClick={() => router.back()}>Go Back</p>
           </div>
           <div className={classes["body"]}>
-            <Checkout />
+            <Checkout
+              handleChangeInput={handleChangeInput}
+              handleChangePayment={handleChangePayment}
+              order={order}
+              payment={payment}
+            />
 
             <Summary />
           </div>

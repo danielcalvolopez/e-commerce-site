@@ -1,6 +1,6 @@
 import classes from "./text-input.module.css";
 
-const TextInput = ({ placeholder, onChange, value, label }) => {
+const TextInput = ({ placeholder, onChange, value, label, name }) => {
   return (
     <div className={classes.container}>
       <label>{label}</label>
@@ -10,6 +10,7 @@ const TextInput = ({ placeholder, onChange, value, label }) => {
         onChange={onChange}
         value={value}
         placeholder={placeholder}
+        name={name}
       />
     </div>
   );
