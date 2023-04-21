@@ -28,10 +28,19 @@ const checkout = () => {
     postCode: "",
     city: "",
     country: "",
+    method: payment,
     eNumber: "",
     ePin: "",
-    orderItems: [],
+    orderItems: cart.cartItems,
   });
+
+  useEffect(() => {
+    setOrder((state) => ({
+      ...state,
+      orderItems: cart.cartItems,
+      method: payment,
+    }));
+  }, [cart.cartItems, payment]);
 
   const handleChangeInput = (event) => {
     setOrder((state) => ({
