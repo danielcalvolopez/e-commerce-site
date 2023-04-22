@@ -1,6 +1,12 @@
 import classes from "./error-number-input.module.css";
 
-const NumberInput = ({ placeholder, onChange, value, label, error }) => {
+const ErrorNumberInput = ({
+  placeholder,
+  onChange,
+  value,
+  label,
+  errorMsg,
+}) => {
   const numberInputOnWheelPreventChange = (event) => {
     event.target.blur();
     event.stopPropagation();
@@ -13,7 +19,7 @@ const NumberInput = ({ placeholder, onChange, value, label, error }) => {
     <div className={classes.container}>
       <div className={classes.header}>
         <label>{label}</label>
-        <p>{error}</p>
+        <p>{errorMsg}</p>
       </div>
       <input
         className={classes.input}
@@ -27,4 +33,4 @@ const NumberInput = ({ placeholder, onChange, value, label, error }) => {
   );
 };
 
-export default NumberInput;
+export default ErrorNumberInput;

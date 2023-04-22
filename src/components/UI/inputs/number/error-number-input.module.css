@@ -1,8 +1,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 20px 0;
+  gap: 5px;
+  width: 100%;
 }
 
 .header {
@@ -11,6 +11,10 @@
   font-size: 12px;
   font-weight: bold;
   color: red;
+}
+
+.header label {
+  text-transform: capitalize;
 }
 
 .header p {

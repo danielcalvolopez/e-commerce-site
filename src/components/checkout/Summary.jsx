@@ -7,7 +7,7 @@ import Price from "../cart/Price";
 import ButtonWide from "../UI/buttons/ButtonWide";
 import classes from "./summary.module.css";
 
-const Summary = () => {
+const Summary = ({ handleSubmitCheckout }) => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
@@ -52,7 +52,7 @@ const Summary = () => {
             total={cart.cartTotalAmount + shipping.standard}
           />
 
-          <ButtonWide>continue & pay</ButtonWide>
+          <ButtonWide onClick={handleSubmitCheckout}>continue & pay</ButtonWide>
         </>
       )}
     </div>
