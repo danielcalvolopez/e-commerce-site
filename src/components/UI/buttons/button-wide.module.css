@@ -1,4 +1,4 @@
-.button1 {
+.button {
   text-transform: uppercase;
   font-size: 13px;
   letter-spacing: 1px;
@@ -16,4 +16,9 @@
 .button1:hover {
   background-color: var(--light-orange);
   transition: all 0.2s ease-in-out;
+}
+
+.disabled {
+  background-color: gray;
+  cursor: not-allowed;
 }

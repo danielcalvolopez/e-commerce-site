@@ -1,4 +1,5 @@
 import { getTotals } from "@/redux/features/cartSlice";
+import shipping from "@/utils/data/shippingRates";
 import { vatCalculator } from "@/utils/functions/vatCalculator";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,10 +15,6 @@ const Summary = ({ handleSubmitCheckout }) => {
   useEffect(() => {
     dispatch(getTotals());
   }, [cart]);
-
-  const shipping = {
-    standard: 50,
-  };
 
   return (
     <div className={classes.summary}>
