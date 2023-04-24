@@ -5,8 +5,13 @@ import Image from "next/image";
 import orderConfirmation from "../../../public/assets/checkout/icon-order-confirmation.svg";
 import CartItem from "../cart/CartItem";
 import Price from "../cart/Price";
+import { useSelector } from "react-redux";
+import shipping from "@/utils/data/shippingRates";
+import Link from "next/link";
 
 const ThanksModal = () => {
+  const orderConfirmed = useSelector((state) => state.order);
+  const cart = useSelector((state) => state.cart);
   return (
     <>
       <Backdrop />
@@ -18,9 +23,11 @@ const ThanksModal = () => {
         </div>
         <div className={classes["order-summary"]}>
           <div className={classes.item}>
-            <CartItem>
-              <span>x1</span>
-            </CartItem>
+            {orderConfirmed.orderItems.map((item) => (
+              <CartItem key={item.id}>
+                <span>x{item.cartQuantity}</span>
+              </CartItem>
+            ))}
 
             <div className={classes.break} />
             <p className={classes.other}>and 2 other item(s)</p>
@@ -28,10 +35,16 @@ const ThanksModal = () => {
           </div>
 
           <div className={classes.price}>
-            <Price flex text="grand total" total={5446} />
+            <Price
+              flex
+              text="grand total"
+              total={cart.cartTotalAmount + shipping.standard}
+            />
           </div>
         </div>
-        <ButtonWide>back to home</ButtonWide>
+        <Link href="/">
+          <ButtonWide>back to home</ButtonWide>
+        </Link>
       </div>
     </>
   );

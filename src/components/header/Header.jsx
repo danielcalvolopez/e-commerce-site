@@ -75,7 +75,7 @@ const Header = ({ className }) => {
           />
           {cart.cartItems.length > 0 && (
             <span onClick={handleToggleCart} className={classes.quantity}>
-              {cart.cartItems.length}
+              {cart.cartTotalQuantity}
             </span>
           )}
           {toggleCart && <Cart toggleCart={handleToggleCart} />}
