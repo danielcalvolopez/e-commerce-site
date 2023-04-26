@@ -6,39 +6,33 @@ import TextInput from "../inputs/text/TextInput";
 const FormItem = ({
   label,
   type,
-  onChange,
-  value,
   placeholder,
   name,
+  errorMessage,
+  register,
   id,
   onClick,
   checked,
-  error,
-  errorMessage,
 }) => {
   return (
     <>
       {type === "text" && (
         <TextInput
           label={label}
-          onChange={onChange}
-          value={value}
           placeholder={placeholder}
           name={name}
-          error={error}
           errorMsg={errorMessage}
+          register={register}
         />
       )}
 
       {type === "number" && (
         <NumberInput
           errorMsg={errorMessage}
-          error={error}
           label={label}
-          onChange={onChange}
-          value={value}
           placeholder={placeholder}
           name={name}
+          register={register}
         />
       )}
 

@@ -1,4 +1,4 @@
-export const eMailregex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+export const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export const phoneRegex =
   /^(?:(?:\+|00)44|0)\s?(?:\d{5}\s?\d{4,5}|\d{3}\s?\d{3}\s?\d{4}|\d{2}\s?\d{4}\s?\d{4}|\d{4}\s?\d{3}\s?\d{4})$/;
 export const postCodeRegex =

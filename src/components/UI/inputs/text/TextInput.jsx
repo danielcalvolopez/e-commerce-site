@@ -6,14 +6,14 @@ const TextInput = ({
   value,
   label,
   name,
-  error,
   errorMsg,
+  register,
 }) => {
   return (
     <div className={classes.container}>
       <div className={classes.header}>
         <label>{label}</label>
-        {error && <p>{errorMsg}</p>}
+        {errorMsg !== undefined && <p>{errorMsg}</p>}
       </div>
       <input
         className={classes.input}
@@ -22,6 +22,7 @@ const TextInput = ({
         value={value}
         placeholder={placeholder}
         name={name}
+        {...register(name)}
       />
     </div>
   );

@@ -7,7 +7,7 @@ const NumberInput = ({
   label,
   name,
   errorMsg,
-  error,
+  register,
 }) => {
   const numberInputOnWheelPreventChange = (event) => {
     event.target.blur();
@@ -21,7 +21,7 @@ const NumberInput = ({
     <div className={classes.container}>
       <div className={classes.header}>
         <label>{label}</label>
-        {error && <p>{errorMsg}</p>}
+        {errorMsg !== undefined && <p>{errorMsg}</p>}
       </div>
       <input
         name={name}
@@ -31,6 +31,7 @@ const NumberInput = ({
         value={value}
         placeholder={placeholder}
         onWheel={numberInputOnWheelPreventChange}
+        {...register(name)}
       />
     </div>
   );

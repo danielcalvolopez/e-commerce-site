@@ -3,48 +3,47 @@ import FormItem from "../UI/form/FormItem";
 import classes from "./checkout.module.css";
 
 const Checkout = ({
-  handleChangeInput,
   handleChangePayment,
-  order,
   payment,
-  error,
+  register,
+  handleSubmit,
+  onSubmit,
+  errors,
 }) => {
   return (
-    <Form className={classes.checkout}>
+    <Form
+      id="checkout"
+      onSubmit={handleSubmit(onSubmit)}
+      className={classes.checkout}
+    >
       <h3>checkout</h3>
 
       <div className={classes.billing}>
         <label className={classes.title}>billing details</label>
         <div className={classes["billing-inputs"]}>
           <FormItem
-            onChange={handleChangeInput}
-            value={order.name}
             label="name"
             placeholder="John Doe"
             name="name"
             type="text"
-            error={error.name}
-            errorMessage="Please enter a valid name"
+            errorMessage={errors.name?.message}
+            register={register}
           />
           <FormItem
-            onChange={handleChangeInput}
-            value={order.email}
             label="email address"
             placeholder="johndoe@gmail.com"
             name="email"
             type="text"
-            error={error.email}
-            errorMessage="Please enter a valid email"
+            errorMessage={errors.email?.message}
+            register={register}
           />
           <FormItem
-            onChange={handleChangeInput}
-            value={order.phone}
             label="phone number"
             placeholder="07654321098"
             name="phone"
             type="number"
-            error={error.phone}
-            errorMessage="Please enter a valid phone number"
+            errorMessage={errors.phone?.message}
+            register={register}
           />
         </div>
       </div>
@@ -52,45 +51,37 @@ const Checkout = ({
       <div className={classes.billing}>
         <label className={classes.title}>shipping info</label>
         <FormItem
-          onChange={handleChangeInput}
-          value={order.address}
           label="address"
           placeholder="10 Downing Street"
           name="address"
           type="text"
-          error={error.address}
-          errorMessage="Please enter a valid address"
+          errorMessage={errors.address?.message}
+          register={register}
         />
         <div className={classes["billing-inputs"]}>
           <FormItem
-            onChange={handleChangeInput}
-            value={order.postCode}
             label="ZIP code"
             placeholder="W9 4HG"
             name="postCode"
             type="text"
-            error={error.postCode}
-            errorMessage="Please enter a valid post code"
+            errorMessage={errors.postCode?.message}
+            register={register}
           />
           <FormItem
-            onChange={handleChangeInput}
-            value={order.city}
             label="city"
             placeholder="London"
             name="city"
             type="text"
-            error={error.city}
-            errorMessage="Please enter a valid city"
+            errorMessage={errors.city?.message}
+            register={register}
           />
           <FormItem
-            onChange={handleChangeInput}
-            value={order.country}
             label="country"
             placeholder="United Kingdom"
             name="country"
             type="text"
-            error={error.country}
-            errorMessage="Please enter a valid country"
+            errorMessage={errors.country?.message}
+            register={register}
           />
         </div>
       </div>
@@ -120,20 +111,18 @@ const Checkout = ({
         {payment === "e-Money" && (
           <div className={classes["billing-inputs"]}>
             <FormItem
-              onChange={handleChangeInput}
-              value={order.eNumber}
               label="e-Money Number"
               placeholder="238521993"
               name="eNumber"
               type="number"
+              register={register}
             />
             <FormItem
-              value={order.ePin}
-              onChange={handleChangeInput}
               label="e-Money PIN"
               placeholder="6891"
               name="ePin"
               type="number"
+              register={register}
             />
           </div>
         )}
