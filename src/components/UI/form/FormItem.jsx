@@ -18,47 +18,27 @@ const FormItem = ({
 }) => {
   return (
     <>
-      {type === "text" && !error && (
+      {type === "text" && (
         <TextInput
           label={label}
           onChange={onChange}
           value={value}
           placeholder={placeholder}
           name={name}
-        />
-      )}
-
-      {type === "text" && error && (
-        <TextInput
           error={error}
           errorMsg={errorMessage}
-          label={label}
-          onChange={onChange}
-          value={value}
-          placeholder={placeholder}
-          name={name}
         />
       )}
 
-      {type === "number" && !error && (
+      {type === "number" && (
         <NumberInput
-          label={label}
-          onChange={onChange}
-          value={value}
-          placeholder={placeholder}
-          name={name}
-        />
-      )}
-
-      {type === "number" && error && (
-        <NumberInput
-          label={label}
-          onChange={onChange}
-          value={value}
-          placeholder={placeholder}
-          name={name}
           errorMsg={errorMessage}
           error={error}
+          label={label}
+          onChange={onChange}
+          value={value}
+          placeholder={placeholder}
+          name={name}
         />
       )}
 
