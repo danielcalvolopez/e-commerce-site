@@ -58,6 +58,8 @@ const Checkout = ({
           placeholder="10 Downing Street"
           name="address"
           type="text"
+          error={error.address}
+          errorMessage="Please enter a valid address"
         />
         <div className={classes["billing-inputs"]}>
           <FormItem
@@ -77,6 +79,8 @@ const Checkout = ({
             placeholder="London"
             name="city"
             type="text"
+            error={error.city}
+            errorMessage="Please enter a valid city"
           />
           <FormItem
             onChange={handleChangeInput}
@@ -85,6 +89,8 @@ const Checkout = ({
             placeholder="United Kingdom"
             name="country"
             type="text"
+            error={error.country}
+            errorMessage="Please enter a valid country"
           />
         </div>
       </div>
@@ -110,24 +116,27 @@ const Checkout = ({
             />
           </div>
         </div>
-        <div className={classes["billing-inputs"]}>
-          <FormItem
-            onChange={handleChangeInput}
-            value={order.eNumber}
-            label="e-Money Number"
-            placeholder="238521993"
-            name="eNumber"
-            type="number"
-          />
-          <FormItem
-            value={order.ePin}
-            onChange={handleChangeInput}
-            label="e-Money PIN"
-            placeholder="6891"
-            name="ePin"
-            type="number"
-          />
-        </div>
+
+        {payment === "e-Money" && (
+          <div className={classes["billing-inputs"]}>
+            <FormItem
+              onChange={handleChangeInput}
+              value={order.eNumber}
+              label="e-Money Number"
+              placeholder="238521993"
+              name="eNumber"
+              type="number"
+            />
+            <FormItem
+              value={order.ePin}
+              onChange={handleChangeInput}
+              label="e-Money PIN"
+              placeholder="6891"
+              name="ePin"
+              type="number"
+            />
+          </div>
+        )}
       </div>
     </Form>
   );

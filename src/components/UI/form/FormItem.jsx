@@ -1,8 +1,6 @@
 import React from "react";
-import ErrorNumberInput from "../inputs/number/ErrorNumberInput";
 import NumberInput from "../inputs/number/NumberInput";
 import RadioInput from "../inputs/radio/RadioInput";
-import ErrorTextInput from "../inputs/text/ErrorTextInput";
 import TextInput from "../inputs/text/TextInput";
 
 const FormItem = ({
@@ -31,7 +29,7 @@ const FormItem = ({
       )}
 
       {type === "text" && error && (
-        <ErrorTextInput
+        <TextInput
           error={error}
           errorMsg={errorMessage}
           label={label}
@@ -53,7 +51,7 @@ const FormItem = ({
       )}
 
       {type === "number" && error && (
-        <ErrorNumberInput
+        <NumberInput
           label={label}
           onChange={onChange}
           value={value}

@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { saveOrder } from "@/redux/features/orderSlice";
+import { eMailregex, phoneRegex, postCodeRegex } from "@/utils/functions/regex";
 
 const checkout = () => {
   const router = useRouter();
@@ -20,14 +21,10 @@ const checkout = () => {
     email: false,
     phone: false,
     postCode: false,
+    address: false,
+    city: false,
+    country: false,
   });
-
-  useEffect(() => {
-    if (cart.cartItems.length === 0) {
-      router.push("/");
-    }
-  }, [cart.cartItems.length]);
-
   const [payment, setPayment] = useState("e-Money");
   const [order, setOrder] = useState({
     name: "",
@@ -42,6 +39,10 @@ const checkout = () => {
     method: payment,
     orderItems: cart.cartItems,
   });
+
+  const { name, email, phone, postCode, address, city, country } = order;
+
+  console.log(orderConfirmed);
 
   useEffect(() => {
     setOrder((state) => ({
@@ -60,67 +61,99 @@ const checkout = () => {
 
   const handleSubmitCheckout = (event) => {
     event.preventDefault();
-    const {
-      name,
-      email,
-      phone,
-      postCode,
-      address,
-      city,
-      country,
-      eNumber,
-      ePin,
-    } = order;
 
-    if (name.length === 0 && name.length > 30) {
+    if (name.length === 0) {
       setError((state) => ({
         ...state,
         name: true,
       }));
       return;
+    } else {
+      setError((state) => ({
+        ...state,
+        name: false,
+      }));
     }
 
-    const eMailregex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!eMailregex.test(email)) {
       setError((state) => ({
         ...state,
         email: true,
       }));
       return;
+    } else {
+      setError((state) => ({
+        ...state,
+        email: false,
+      }));
     }
 
-    const phoneRegex =
-      /^(?:(?:\+|00)44|0)\s?(?:\d{5}\s?\d{4,5}|\d{3}\s?\d{3}\s?\d{4}|\d{2}\s?\d{4}\s?\d{4}|\d{4}\s?\d{3}\s?\d{4})$/;
     if (!phoneRegex.test(phone)) {
       setError((state) => ({
         ...state,
         phone: true,
       }));
       return;
+    } else {
+      setError((state) => ({
+        ...state,
+        phone: false,
+      }));
     }
 
-    const postCodeRegex =
-      /^([A-PR-UWYZa-pr-uwyz][0-9][0-9A-HJKS-UWa-hjks-uw]?\s?[0-9][ABD-HJLNP-UW-Zabd-hjlnp-uw-z]{2})$/;
+    if (address.length === 0) {
+      setError((state) => ({
+        ...state,
+        address: true,
+      }));
+      return;
+    } else {
+      setError((state) => ({
+        ...state,
+        address: false,
+      }));
+    }
+
     if (!postCodeRegex.test(postCode)) {
       setError((state) => ({
         ...state,
         postCode: true,
       }));
       return;
+    } else {
+      setError((state) => ({
+        ...state,
+        postCode: false,
+      }));
+    }
+
+    if (city.length === 0) {
+      setError((state) => ({
+        ...state,
+        city: true,
+      }));
+      return;
+    } else {
+      setError((state) => ({
+        ...state,
+        city: false,
+      }));
+    }
+
+    if (country.length === 0) {
+      setError((state) => ({
+        ...state,
+        country: true,
+      }));
+      return;
+    } else {
+      setError((state) => ({
+        ...state,
+        country: false,
+      }));
     }
 
     dispatch(saveOrder(order));
-    setOrder({
-      name: "",
-      email: "",
-      phone: "",
-      address: "",
-      postCode: "",
-      city: "",
-      country: "",
-      eNumber: "",
-      ePin: "",
-    });
   };
 
   const handleChangePayment = (event) => {

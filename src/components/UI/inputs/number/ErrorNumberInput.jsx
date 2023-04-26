@@ -6,6 +6,7 @@ const ErrorNumberInput = ({
   value,
   label,
   errorMsg,
+  name,
 }) => {
   const numberInputOnWheelPreventChange = (event) => {
     event.target.blur();
@@ -28,6 +29,7 @@ const ErrorNumberInput = ({
         value={value}
         placeholder={placeholder}
         onWheel={numberInputOnWheelPreventChange}
+        name={name}
       />
     </div>
   );

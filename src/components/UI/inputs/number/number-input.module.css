@@ -28,3 +28,15 @@
 .input:focus {
   border: 1px solid var(--dark-orange);
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.header p {
+  color: red;
+  text-transform: capitalize;
+}
