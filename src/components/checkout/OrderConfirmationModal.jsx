@@ -5,18 +5,24 @@ import Image from "next/image";
 import orderConfirmation from "../../../public/assets/checkout/icon-order-confirmation.svg";
 import CartItem from "../cart/CartItem";
 import Price from "../cart/Price";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import shipping from "@/utils/data/shippingRates";
 import Link from "next/link";
 import { useState } from "react";
+import { clearCart } from "@/redux/features/cartSlice";
 
 const ThanksModal = () => {
   const orderConfirmed = useSelector((state) => state.order);
   const cart = useSelector((state) => state.cart);
   const [toggleViewItems, setToggleViewItems] = useState(false);
+  const dispatch = useDispatch();
 
   const handleToggle = () => {
     setToggleViewItems((prev) => !prev);
+  };
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
   };
 
   return (
@@ -31,7 +37,7 @@ const ThanksModal = () => {
         <div className={classes["order-summary"]}>
           <div className={classes.item}>
             {toggleViewItems ? (
-              orderConfirmed.orderItems.map(
+              cart.orderItems.map(
                 ({ id, cartQuantity, price, name, image }) => (
                   <CartItem
                     price={price}
@@ -53,17 +59,20 @@ const ThanksModal = () => {
                 <span>x{orderConfirmed.orderItems[0].cartQuantity}</span>
               </CartItem>
             )}
-
-            <div className={classes.break} />
-            {!toggleViewItems ? (
-              <p onClick={handleToggle} className={classes.view}>
-                and {cart.cartItems.length - 1} other item(s)
-              </p>
-            ) : (
-              <p onClick={handleToggle} className={classes.view}>
-                View less
-              </p>
-            )}
+            {cart.cartItems.length > 1 ? (
+              <>
+                <div className={classes.break} />
+                {!toggleViewItems ? (
+                  <p onClick={handleToggle} className={classes.view}>
+                    and {cart.cartItems.length - 1} other item(s)
+                  </p>
+                ) : (
+                  <p onClick={handleToggle} className={classes.view}>
+                    View less
+                  </p>
+                )}
+              </>
+            ) : null}
           </div>
 
           <div className={classes.price}>
@@ -75,7 +84,9 @@ const ThanksModal = () => {
           </div>
         </div>
         <Link href="/">
-          <ButtonWide>back to home</ButtonWide>
+          <ButtonWide onClick={() => handleClearCart()}>
+            back to home
+          </ButtonWide>
         </Link>
       </div>
     </>
