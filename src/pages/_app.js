@@ -9,12 +9,12 @@ const persistor = persistStore(store);
 
 export default function App({ Component, pageProps }) {
   return (
-    <LoadingContextProvider>
-      <Provider store={store}>
+    <Provider store={store}>
+      <LoadingContextProvider>
         <PersistGate persistor={persistor}>
           <Component {...pageProps} />
         </PersistGate>
-      </Provider>
-    </LoadingContextProvider>
+      </LoadingContextProvider>
+    </Provider>
   );
 }
