@@ -6,7 +6,7 @@ import Header from "@/components/header/Header";
 import MainContent from "@/components/UI/MainContent";
 import classes from "../styles/checkout.module.css";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { saveOrder } from "@/redux/features/orderSlice";
 import { useForm } from "react-hook-form";
@@ -16,10 +16,8 @@ import { validationSchema } from "@/utils/validationSchema";
 const checkout = () => {
   const router = useRouter();
   const cart = useSelector((state) => state.cart);
-  const orderConfirmed = useSelector((state) => state.order);
   const dispatch = useDispatch();
   const [confirmModal, setConfirmModal] = useState(false);
-  const [buttonAbled, setButtonAbled] = useState(false);
 
   const {
     register,
@@ -32,8 +30,37 @@ const checkout = () => {
   const [payment, setPayment] = useState("e-Money");
   const order = cart.cartItems;
 
+  const postOrderDb = async (formData, order, payment) => {
+    await fetch("/api/orders", {
+      method: "POST",
+      body: JSON.stringify({
+        billing: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+        },
+        shipping: {
+          address: formData.address,
+          postCode: formData.postCode,
+          city: formData.city,
+          country: formData.country,
+        },
+        payment: {
+          method: payment,
+          eNumber: formData.eNumber,
+          ePin: formData.ePin,
+        },
+        orderItems: order,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  };
+
   const onSubmit = (formData) => {
     dispatch(saveOrder({ formData, order, payment }));
+    postOrderDb(formData, order, payment);
     setConfirmModal(true);
   };
 
