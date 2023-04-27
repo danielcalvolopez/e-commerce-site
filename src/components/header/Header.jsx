@@ -7,12 +7,18 @@ import ToggleMenu from "./ToggleMenu";
 import Backdrop from "../UI/Backdrop";
 import Link from "next/link";
 import Cart from "../cart/Cart";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getTotals } from "../../redux/features/cartSlice";
 
 const Header = ({ className }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [toggleCart, setToggleCart] = useState(false);
   const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cart]);
 
   const handleToggleMenu = () => {
     setToggleMenu((prev) => !prev);

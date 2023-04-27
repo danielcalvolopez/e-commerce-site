@@ -129,7 +129,7 @@ const Checkout = ({
           </div>
         ) : (
           <div className={classes.cod}>
-            <Image src={cashOnDeliveryLogo} />
+            <Image src={cashOnDeliveryLogo} alt="" />
             <p>
               The ‘Cash on Delivery’ option enables you to pay in cash when our
               delivery courier arrives at your residence. Just make sure your

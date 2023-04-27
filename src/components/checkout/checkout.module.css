@@ -58,3 +58,11 @@
     width: 100%;
   }
 }
+
+@media (max-width: 500px) {
+  .cod {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+}

@@ -51,7 +51,7 @@ const Cart = ({ toggleCart }) => {
       <Backdrop onClick={toggleCart} />
       <div className={classes.content} btntext="checkout">
         <div className={classes.header}>
-          <h5>cart ({cart?.cartItems.length})</h5>
+          <h5>cart ({cart.cartTotalQuantity})</h5>
           {cart?.cartItems.length > 0 && (
             <p onClick={() => handleClearCart()}>Remove all</p>
           )}

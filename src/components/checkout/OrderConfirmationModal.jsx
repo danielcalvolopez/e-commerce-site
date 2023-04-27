@@ -37,7 +37,7 @@ const ThanksModal = () => {
         <div className={classes["order-summary"]}>
           <div className={classes.item}>
             {toggleViewItems ? (
-              cart.orderItems.map(
+              orderConfirmed.orderItems.map(
                 ({ id, cartQuantity, price, name, image }) => (
                   <CartItem
                     price={price}
