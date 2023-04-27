@@ -46,6 +46,12 @@
   flex-direction: column;
   gap: 15px;
 }
+.cod {
+  color: gray;
+  display: flex;
+  gap: 40px;
+  margin-top: 35px;
+}
 
 @media (max-width: 1200px) {
   .checkout {

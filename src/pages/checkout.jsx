@@ -6,7 +6,7 @@ import Header from "@/components/header/Header";
 import MainContent from "@/components/UI/MainContent";
 import classes from "../styles/checkout.module.css";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { saveOrder } from "@/redux/features/orderSlice";
 import { useForm } from "react-hook-form";
@@ -19,8 +19,7 @@ const checkout = () => {
   const orderConfirmed = useSelector((state) => state.order);
   const dispatch = useDispatch();
   const [confirmModal, setConfirmModal] = useState(false);
-
-  console.log(orderConfirmed);
+  const [buttonAbled, setButtonAbled] = useState(false);
 
   const {
     register,

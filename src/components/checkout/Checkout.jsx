@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Form from "../UI/form/Form";
 import FormItem from "../UI/form/FormItem";
 import classes from "./checkout.module.css";
+import cashOnDeliveryLogo from "../../../public/assets/checkout/icon-cash-on-delivery.svg";
 
 const Checkout = ({
   handleChangePayment,
@@ -108,7 +110,7 @@ const Checkout = ({
           </div>
         </div>
 
-        {payment === "e-Money" && (
+        {payment === "e-Money" ? (
           <div className={classes["billing-inputs"]}>
             <FormItem
               label="e-Money Number"
@@ -124,6 +126,15 @@ const Checkout = ({
               type="number"
               register={register}
             />
+          </div>
+        ) : (
+          <div className={classes.cod}>
+            <Image src={cashOnDeliveryLogo} />
+            <p>
+              The ‘Cash on Delivery’ option enables you to pay in cash when our
+              delivery courier arrives at your residence. Just make sure your
+              address is correct so that your order will not be cancelled.
+            </p>
           </div>
         )}
       </div>

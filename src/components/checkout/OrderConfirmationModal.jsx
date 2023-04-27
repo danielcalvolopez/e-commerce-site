@@ -12,6 +12,7 @@ import Link from "next/link";
 const ThanksModal = () => {
   const orderConfirmed = useSelector((state) => state.order);
   const cart = useSelector((state) => state.cart);
+
   return (
     <>
       <Backdrop />
@@ -23,11 +24,18 @@ const ThanksModal = () => {
         </div>
         <div className={classes["order-summary"]}>
           <div className={classes.item}>
-            {orderConfirmed.orderItems.map((item) => (
-              <CartItem key={item.id}>
-                <span>x{item.cartQuantity}</span>
-              </CartItem>
-            ))}
+            {orderConfirmed.orderItems.map(
+              ({ id, cartQuantity, price, name, image }) => (
+                <CartItem
+                  price={price}
+                  name={name}
+                  image={image.desktop}
+                  key={id}
+                >
+                  <span>x{cartQuantity}</span>
+                </CartItem>
+              )
+            )}
 
             <div className={classes.break} />
             <p className={classes.other}>and 2 other item(s)</p>
