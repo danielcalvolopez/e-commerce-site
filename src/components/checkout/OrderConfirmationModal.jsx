@@ -8,10 +8,16 @@ import Price from "../cart/Price";
 import { useSelector } from "react-redux";
 import shipping from "@/utils/data/shippingRates";
 import Link from "next/link";
+import { useState } from "react";
 
 const ThanksModal = () => {
   const orderConfirmed = useSelector((state) => state.order);
   const cart = useSelector((state) => state.cart);
+  const [toggleViewItems, setToggleViewItems] = useState(false);
+
+  const handleToggle = () => {
+    setToggleViewItems((prev) => !prev);
+  };
 
   return (
     <>
@@ -24,22 +30,40 @@ const ThanksModal = () => {
         </div>
         <div className={classes["order-summary"]}>
           <div className={classes.item}>
-            {orderConfirmed.orderItems.map(
-              ({ id, cartQuantity, price, name, image }) => (
-                <CartItem
-                  price={price}
-                  name={name}
-                  image={image.desktop}
-                  key={id}
-                >
-                  <span>x{cartQuantity}</span>
-                </CartItem>
+            {toggleViewItems ? (
+              orderConfirmed.orderItems.map(
+                ({ id, cartQuantity, price, name, image }) => (
+                  <CartItem
+                    price={price}
+                    name={name}
+                    image={image.desktop}
+                    key={id}
+                  >
+                    <span>x{cartQuantity}</span>
+                  </CartItem>
+                )
               )
+            ) : (
+              <CartItem
+                price={orderConfirmed.orderItems[0].price}
+                name={orderConfirmed.orderItems[0].name}
+                image={orderConfirmed.orderItems[0].image.desktop}
+                key={orderConfirmed.orderItems[0].id}
+              >
+                <span>x{orderConfirmed.orderItems[0].cartQuantity}</span>
+              </CartItem>
             )}
 
             <div className={classes.break} />
-            <p className={classes.other}>and 2 other item(s)</p>
-            {/* <p className={classes.other}>View less</p> */}
+            {!toggleViewItems ? (
+              <p onClick={handleToggle} className={classes.view}>
+                and {cart.cartItems.length - 1} other item(s)
+              </p>
+            ) : (
+              <p onClick={handleToggle} className={classes.view}>
+                View less
+              </p>
+            )}
           </div>
 
           <div className={classes.price}>
