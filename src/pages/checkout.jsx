@@ -16,6 +16,7 @@ import { validationSchema } from "@/utils/validationSchema";
 const checkout = () => {
   const router = useRouter();
   const cart = useSelector((state) => state.cart);
+  const order = cart.cartItems;
   const dispatch = useDispatch();
   const [confirmationModal, setConfirmationModal] = useState(false);
 
@@ -28,7 +29,6 @@ const checkout = () => {
   });
 
   const [payment, setPayment] = useState("e-Money");
-  const order = cart.cartItems;
 
   const postOrderDb = async (formData, order, payment) => {
     await fetch("/api/orders", {
