@@ -17,7 +17,7 @@ const ThanksModal = () => {
       <Backdrop />
       <div className={classes.container}>
         <div className={classes.confirmation}>
-          <Image src={orderConfirmation} />
+          <Image src={orderConfirmation} alt="" />
           <h3>thank you for your order</h3>
           <p>You will receive an email confirmation shortly.</p>
         </div>

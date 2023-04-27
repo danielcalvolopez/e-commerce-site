@@ -25,17 +25,17 @@ const orderSlice = createSlice({
   initialState: initialState,
   reducers: {
     saveOrder: (state, action) => {
-      state.billing.name = action.payload.name;
-      state.billing.email = action.payload.email;
-      state.billing.phone = action.payload.phone;
-      state.shipping.address = action.payload.address;
-      state.shipping.postCode = action.payload.postCode;
-      state.shipping.city = action.payload.city;
-      state.shipping.country = action.payload.country;
-      state.payment.method = action.payload.method;
-      state.payment.eNumber = action.payload.eNumber;
-      state.payment.ePin = action.payload.ePin;
-      state.orderItems = action.payload.orderItems;
+      state.billing.name = action.payload.formData.name;
+      state.billing.email = action.payload.formData.email;
+      state.billing.phone = action.payload.formData.phone;
+      state.shipping.address = action.payload.formData.address;
+      state.shipping.postCode = action.payload.formData.postCode;
+      state.shipping.city = action.payload.formData.city;
+      state.shipping.country = action.payload.formData.country;
+      state.payment.method = action.payload.payment;
+      state.payment.eNumber = action.payload.formData.eNumber;
+      state.payment.ePin = action.payload.formData.ePin;
+      state.orderItems = action.payload.order;
     },
   },
 });

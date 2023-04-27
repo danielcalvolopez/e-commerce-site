@@ -18,6 +18,9 @@ const checkout = () => {
   const cart = useSelector((state) => state.cart);
   const orderConfirmed = useSelector((state) => state.order);
   const dispatch = useDispatch();
+  const [confirmModal, setConfirmModal] = useState(false);
+
+  console.log(orderConfirmed);
 
   const {
     register,
@@ -31,8 +34,8 @@ const checkout = () => {
   const order = cart.cartItems;
 
   const onSubmit = (formData) => {
-    console.log(formData);
     dispatch(saveOrder({ formData, order, payment }));
+    setConfirmModal(true);
   };
 
   const handleChangePayment = (event) => {
@@ -43,7 +46,7 @@ const checkout = () => {
     <div>
       <Header className={classes["header-bg-black"]} />
       <MainContent bgGray>
-        {/* <OrderConfirmationModal /> */}
+        {confirmModal && <OrderConfirmationModal />}
         <div className={classes.content}>
           <div className={classes.back}>
             <p onClick={() => router.back()}>Go Back</p>
