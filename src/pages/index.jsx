@@ -8,8 +8,12 @@ import Banner3 from "@/components/sections/banners/Banner3";
 import Banner4 from "@/components/sections/banners/Banner4";
 import MainContent from "@/components/UI/MainContent";
 import { getData } from "./api/products";
+import { useContext } from "react";
+import { LoadingContext } from "@/context/LoadingContext";
+import LoadingPage from "@/components/UI/loading/LoadingPage";
 
 const Home = ({ data }) => {
+  const loading = useContext(LoadingContext);
   return (
     <>
       <Head>
@@ -19,6 +23,7 @@ const Home = ({ data }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <>
+        {loading && <LoadingPage />}
         <Hero />
 
         <MainContent>

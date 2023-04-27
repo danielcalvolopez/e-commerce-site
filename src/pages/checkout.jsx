@@ -6,12 +6,14 @@ import Header from "@/components/header/Header";
 import MainContent from "@/components/UI/MainContent";
 import classes from "../styles/checkout.module.css";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { saveOrder } from "@/redux/features/orderSlice";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { validationSchema } from "@/utils/validationSchema";
+import { LoadingContext } from "@/context/LoadingContext";
+import LoadingPage from "@/components/UI/loading/LoadingPage";
 
 const checkout = () => {
   const router = useRouter();
@@ -19,7 +21,7 @@ const checkout = () => {
   const order = cart.cartItems;
   const dispatch = useDispatch();
   const [confirmationModal, setConfirmationModal] = useState(false);
-
+  const loading = useContext(LoadingContext);
   const {
     register,
     handleSubmit,
@@ -69,7 +71,8 @@ const checkout = () => {
   };
 
   return (
-    <div>
+    <>
+      {loading && <LoadingPage />}
       <Header className={classes["header-bg-black"]} />
       <MainContent bgGray>
         {confirmationModal && <OrderConfirmationModal />}
@@ -93,7 +96,7 @@ const checkout = () => {
         </div>
       </MainContent>
       <Footer />
-    </div>
+    </>
   );
 };
 

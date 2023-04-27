@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import classes from "../../../styles/product-details.module.css";
 import { MongoClient } from "mongodb";
 import { getData } from "../../api/products";
@@ -17,14 +17,16 @@ import ProductSuggestions from "@/components/sections/products/product-page/prod
 import { useDispatch, useSelector } from "react-redux";
 import { addCustomAmountToCart } from "@/redux/features/cartSlice";
 import { reset, selectCount } from "@/redux/features/counterSlice";
+import { LoadingContext } from "@/context/LoadingContext";
+import LoadingPage from "@/components/UI/loading/LoadingPage";
 
 const ProductDetails = ({ data }) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const [product, setProduct] = useState({});
   const counter = useSelector(selectCount);
-
   const products = data;
+  const loading = useContext(LoadingContext);
 
   const handleAddToCart = (product) => {
     dispatch(addCustomAmountToCart([product, counter]));
@@ -41,6 +43,7 @@ const ProductDetails = ({ data }) => {
   }, [router.query.productDetails]);
   return (
     <>
+      {loading && <LoadingPage />}
       <Header className={classes["header-bg-black"]} />
       <MainContent>
         <Product

@@ -16,16 +16,32 @@ const ToggleMenu = ({ setToggleMenu }) => {
         size={30}
       />
       <div className={classes.menu}>
-        <Link href="/" className={classes["menu-item"]}>
+        <Link
+          href="/"
+          onClick={handleCloseMenu}
+          className={classes["menu-item"]}
+        >
           Home
         </Link>
-        <Link href="/headphones" className={classes["menu-item"]}>
+        <Link
+          href="/headphones"
+          onClick={handleCloseMenu}
+          className={classes["menu-item"]}
+        >
           Headphones
         </Link>
-        <Link href="/speakers" className={classes["menu-item"]}>
+        <Link
+          href="/speakers"
+          onClick={handleCloseMenu}
+          className={classes["menu-item"]}
+        >
           Speakers
         </Link>
-        <Link href="/earphones" className={classes["menu-item"]}>
+        <Link
+          href="/earphones"
+          onClick={handleCloseMenu}
+          className={classes["menu-item"]}
+        >
           Earphones
         </Link>
       </div>
