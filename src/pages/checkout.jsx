@@ -14,6 +14,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { validationSchema } from "@/utils/validationSchema";
 import { LoadingContext } from "@/context/LoadingContext";
 import LoadingPage from "@/components/UI/loading/LoadingPage";
+import usePostOrder from "@/hooks/usePostOrder";
 
 const checkout = () => {
   const router = useRouter();
@@ -31,38 +32,13 @@ const checkout = () => {
   });
 
   const [payment, setPayment] = useState("e-Money");
-
-  const postOrderDb = async (formData, order, payment) => {
-    await fetch("/api/orders", {
-      method: "POST",
-      body: JSON.stringify({
-        billing: {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-        },
-        shipping: {
-          address: formData.address,
-          postCode: formData.postCode,
-          city: formData.city,
-          country: formData.country,
-        },
-        payment: {
-          method: payment,
-          eNumber: formData.eNumber,
-          ePin: formData.ePin,
-        },
-        orderItems: order,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-  };
+  const { postOrderDbEmoney, postOrderDbCashOnDelivery } = usePostOrder();
 
   const onSubmit = (formData) => {
     dispatch(saveOrder({ formData, order, payment }));
-    postOrderDb(formData, order, payment);
+    payment === "e-Money"
+      ? postOrderDbEmoney(formData, order, payment)
+      : postOrderDbCashOnDelivery(formData, order, payment);
     setConfirmationModal(true);
   };
 
