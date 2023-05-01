@@ -1,4 +1,3 @@
-import Backdrop from "../Backdrop";
 import classes from "./loading-page.module.css";
 
 const LoadingPage = () => {
