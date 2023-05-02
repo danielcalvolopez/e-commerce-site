@@ -6,9 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../cart/CartItem";
 import Price from "../cart/Price";
 import ButtonSubmitOrder from "../UI/buttons/ButtonSubmitOrder";
-import classes from "./summary.module.css";
+import classes from "./checkout-summary.module.css";
 
-const Summary = ({ isFormValid }) => {
+const CheckoutSummary = ({ isFormValid }) => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
@@ -58,4 +58,4 @@ const Summary = ({ isFormValid }) => {
   );
 };
 
-export default Summary;
+export default CheckoutSummary;

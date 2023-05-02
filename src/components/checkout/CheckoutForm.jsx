@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Form from "../UI/form/Form";
 import FormItem from "../UI/form/FormItem";
-import classes from "./checkout.module.css";
+import classes from "./checkout-form.module.css";
 import cashOnDeliveryLogo from "../../../public/assets/checkout/icon-cash-on-delivery.svg";
 
-const Checkout = ({
+const CheckoutForm = ({
   handleChangePayment,
   payment,
   register,
@@ -142,4 +142,4 @@ const Checkout = ({
   );
 };
 
-export default Checkout;
+export default CheckoutForm;

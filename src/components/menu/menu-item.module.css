@@ -1,0 +1,14 @@
+.menu-item {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-item-active {
+  color: var(--dark-orange);
+}
+
+.menu-item:hover,
+.menu-item-active:hover {
+  color: var(--dark-orange);
+  transition: all 0.2s ease-in-out;
+}

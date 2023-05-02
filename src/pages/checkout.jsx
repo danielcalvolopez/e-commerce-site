@@ -1,5 +1,4 @@
-import Checkout from "@/components/checkout/Checkout";
-import Summary from "@/components/checkout/Summary";
+import CheckoutSummary from "@/components/checkout/CheckoutSummary";
 import OrderConfirmationModal from "@/components/checkout/OrderConfirmationModal";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
@@ -15,6 +14,7 @@ import { validationSchema } from "@/utils/validationSchema";
 import { LoadingContext } from "@/context/LoadingContext";
 import LoadingPage from "@/components/UI/loading/LoadingPage";
 import usePostOrder from "@/hooks/usePostOrder";
+import CheckoutForm from "@/components/checkout/CheckoutForm";
 
 const checkout = () => {
   const router = useRouter();
@@ -56,7 +56,7 @@ const checkout = () => {
             <p onClick={() => router.back()}>Go Back</p>
           </div>
           <div className={classes["body"]}>
-            <Checkout
+            <CheckoutForm
               register={register}
               handleChangePayment={handleChangePayment}
               order={order}
@@ -66,7 +66,7 @@ const checkout = () => {
               errors={errors}
             />
 
-            <Summary isFormValid={isValid} />
+            <CheckoutSummary isFormValid={isValid} />
           </div>
         </div>
       </MainContent>
