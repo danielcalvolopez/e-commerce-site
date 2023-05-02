@@ -26,7 +26,7 @@ const checkout = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm({
     resolver: yupResolver(validationSchema),
   });
@@ -66,7 +66,7 @@ const checkout = () => {
               errors={errors}
             />
 
-            <Summary />
+            <Summary isFormValid={isValid} />
           </div>
         </div>
       </MainContent>

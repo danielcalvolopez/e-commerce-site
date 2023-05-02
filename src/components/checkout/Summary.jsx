@@ -5,10 +5,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../cart/CartItem";
 import Price from "../cart/Price";
-import ButtonWide from "../UI/buttons/ButtonWide";
+import ButtonSubmitOrder from "../UI/buttons/ButtonSubmitOrder";
 import classes from "./summary.module.css";
 
-const Summary = () => {
+const Summary = ({ isFormValid }) => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
@@ -49,7 +49,9 @@ const Summary = () => {
             total={cart.cartTotalAmount + shipping.standard}
           />
 
-          <ButtonWide form="checkout">continue & pay</ButtonWide>
+          <ButtonSubmitOrder isFormValid={isFormValid} form="checkout">
+            continue & pay
+          </ButtonSubmitOrder>
         </>
       )}
     </div>

@@ -36,6 +36,10 @@
   font-size: 15px;
 }
 
+.link {
+  width: 160px;
+}
+
 @media (max-width: 950px) {
   .hero {
     background-image: url("/assets/home/tablet/image-header.jpg");

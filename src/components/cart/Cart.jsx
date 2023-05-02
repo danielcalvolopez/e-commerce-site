@@ -84,7 +84,7 @@ const Cart = ({ toggleCart }) => {
           <>
             <Price total={cart.cartTotalAmount} text="total" />
             <Link href="/checkout">
-              <ButtonWide>checkout</ButtonWide>
+              <ButtonWide cart>checkout</ButtonWide>
             </Link>
           </>
         )}
