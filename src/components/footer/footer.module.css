@@ -17,10 +17,6 @@
   justify-content: space-between;
 }
 
-.menu-item {
-  cursor: pointer;
-}
-
 .footer-container .footer-content .bottom {
   display: flex;
   justify-content: space-between;
@@ -47,25 +43,6 @@
   color: rgb(142, 142, 142);
   display: flex;
   width: 400px;
-}
-
-.footer-container .menu {
-  display: flex;
-  gap: 20px;
-  font-size: 13px;
-  text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
-.footer-container .menu .menu-item {
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-.footer-container .menu .menu-item:hover {
-  color: var(--dark-orange);
-  transition: all 0.2s ease-in-out;
 }
 
 .footer-container .social {

@@ -5,10 +5,10 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { useEffect, useMemo, useState } from "react";
 import ToggleMenu from "./ToggleMenu";
 import Backdrop from "../UI/Backdrop";
-import Link from "next/link";
 import Cart from "../cart/Cart";
 import { useDispatch, useSelector } from "react-redux";
 import { getTotals } from "../../redux/features/cartSlice";
+import Menu from "../menu/Menu";
 
 const Header = ({ className }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -59,20 +59,7 @@ const Header = ({ className }) => {
           <Logo className={classes.logo} />
         </div>
 
-        <div className={classes.menu}>
-          <Link href="/" className={classes["menu-item"]}>
-            Home
-          </Link>
-          <Link href="/headphones" className={classes["menu-item"]}>
-            Headphones
-          </Link>
-          <Link href="/speakers" className={classes["menu-item"]}>
-            Speakers
-          </Link>
-          <Link href="/earphones" className={classes["menu-item"]}>
-            Earphones
-          </Link>
-        </div>
+        <Menu />
         <div className={classes["cart-wrapper"]}>
           <AiOutlineShoppingCart
             onClick={handleToggleCart}

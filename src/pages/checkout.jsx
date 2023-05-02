@@ -30,7 +30,6 @@ const checkout = () => {
   } = useForm({
     resolver: yupResolver(validationSchema),
   });
-
   const [payment, setPayment] = useState("e-Money");
   const { postOrderDbEmoney, postOrderDbCashOnDelivery } = usePostOrder();
 

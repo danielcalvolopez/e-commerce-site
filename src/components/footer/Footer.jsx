@@ -1,7 +1,7 @@
 import Logo from "../Logo";
 import classes from "./footer.module.css";
 import Socials from "../socials/Socials";
-import Link from "next/link";
+import Menu from "../menu/Menu";
 
 const Footer = () => {
   return (
@@ -10,20 +10,7 @@ const Footer = () => {
       <div className={classes["footer-content"]}>
         <div className={classes.header}>
           <Logo />
-          <div className={classes.menu}>
-            <Link href="/" className={classes["menu-item"]}>
-              Home
-            </Link>
-            <Link href="/headphones" className={classes["menu-item"]}>
-              Headphones
-            </Link>
-            <Link href="/speakers" className={classes["menu-item"]}>
-              Speakers
-            </Link>
-            <Link href="/earphones" className={classes["menu-item"]}>
-              Earphones
-            </Link>
-          </div>
+          <Menu />
         </div>
 
         <div className={classes.body}>
