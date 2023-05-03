@@ -22,7 +22,9 @@ const ProductSuggestion = ({ image, slug, name }) => {
   };
 
   const handleOnClickProduct = () => {
-    router.push(`/${slug}`);
+    router.push(
+      `/${slug.includes("headphones") ? "headphones" : "speakers"}/${slug}`
+    );
   };
 
   return (
