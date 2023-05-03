@@ -1,0 +1,51 @@
+.billing {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+
+.title {
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--dark-orange);
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.payment {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.payment p {
+  font-size: 12px;
+  font-weight: bold;
+}
+.radio {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.cod {
+  color: gray;
+  display: flex;
+  gap: 40px;
+  margin-top: 35px;
+}
+
+@media (max-width: 500px) {
+  .cod {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+}
