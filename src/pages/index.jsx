@@ -33,6 +33,7 @@ const Home = ({ data }) => {
       >
         {loading && <LoadingPage />}
         <HeaderBig className={classes["bg-gray"]} />
+
         <Hero />
 
         <MainContent>
