@@ -14,6 +14,7 @@ import {
 } from "../../redux/features/cartSlice";
 import { useEffect } from "react";
 import Counter from "../UI/Counter";
+import { motion } from "framer-motion";
 
 const Cart = ({ toggleCart }) => {
   const cart = useSelector((state) => state.cart);
@@ -49,7 +50,14 @@ const Cart = ({ toggleCart }) => {
   return (
     <>
       <Backdrop onClick={toggleCart} />
-      <div className={classes.content} btntext="checkout">
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        className={classes.content}
+        btntext="checkout"
+      >
         <div className={classes.header}>
           <h5>cart ({cart.cartTotalQuantity})</h5>
           {cart?.cartItems.length > 0 && (
@@ -88,7 +96,7 @@ const Cart = ({ toggleCart }) => {
             </Link>
           </>
         )}
-      </div>
+      </motion.div>
     </>
   );
 };

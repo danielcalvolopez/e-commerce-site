@@ -2,13 +2,20 @@ import menuData from "@/utils/data/menuData";
 import { useRouter } from "next/router";
 import classes from "./menu.module.css";
 import MenuItem from "./MenuItem";
+import { motion } from "framer-motion";
 
 const Menu = () => {
   const router = useRouter();
   const currentRoute = router.asPath;
 
   return (
-    <div className={classes.menu}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.7 }}
+      className={classes.menu}
+    >
       {menuData.map(({ name, path }) => (
         <MenuItem
           name={name}
@@ -17,7 +24,7 @@ const Menu = () => {
           key={name}
         />
       ))}
-    </div>
+    </motion.div>
   );
 };
 

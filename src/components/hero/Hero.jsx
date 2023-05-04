@@ -2,6 +2,7 @@ import Link from "next/link";
 import HeaderBig from "../header/HeaderBig";
 import Button1 from "../UI/buttons/Button1";
 import classes from "./hero.module.css";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
@@ -9,7 +10,13 @@ const Hero = () => {
       <HeaderBig className={classes["bg-gray"]} />
 
       <div className={classes.hero}>
-        <div className={classes.content}>
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.7 }}
+          className={classes.content}
+        >
           <p className={classes.announce}>new product</p>
           <h1 className={classes.title}>XX99 Mark II Headphones</h1>
           <p className={classes.description}>
@@ -22,7 +29,7 @@ const Hero = () => {
           >
             <Button1>see product</Button1>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

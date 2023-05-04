@@ -10,6 +10,7 @@ import shipping from "@/utils/data/shippingRates";
 import Link from "next/link";
 import { useState } from "react";
 import { clearCart } from "@/redux/features/cartSlice";
+import { motion } from "framer-motion";
 
 const ThanksModal = () => {
   const orderConfirmed = useSelector((state) => state.order);
@@ -28,7 +29,13 @@ const ThanksModal = () => {
   return (
     <>
       <Backdrop />
-      <div className={classes.container}>
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        className={classes.container}
+      >
         <div className={classes.confirmation}>
           <Image src={orderConfirmation} alt="" />
           <h3>thank you for your order</h3>
@@ -88,7 +95,7 @@ const ThanksModal = () => {
             back to home
           </ButtonWide>
         </Link>
-      </div>
+      </motion.div>
     </>
   );
 };

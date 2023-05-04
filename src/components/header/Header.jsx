@@ -9,6 +9,7 @@ import Cart from "../cart/Cart";
 import { useDispatch, useSelector } from "react-redux";
 import { getTotals } from "../../redux/features/cartSlice";
 import Menu from "../menu/Menu";
+import { motion } from "framer-motion";
 
 const Header = ({ className }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -49,7 +50,13 @@ const Header = ({ className }) => {
     <div className={classes.header}>
       {toggleMenu && <Backdrop onClick={handleToggleMenu} />}
       <div className={classNames}>
-        <div className={classes["burger-logo"]}>
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.7 }}
+          className={classes["burger-logo"]}
+        >
           <GiHamburgerMenu
             onClick={handleToggleMenu}
             className={classes.burger}
@@ -57,10 +64,16 @@ const Header = ({ className }) => {
           />
 
           <Logo className={classes.logo} />
-        </div>
+        </motion.div>
 
         <Menu />
-        <div className={classes["cart-wrapper"]}>
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.7 }}
+          className={classes["cart-wrapper"]}
+        >
           <AiOutlineShoppingCart
             onClick={handleToggleCart}
             className={classes.cart}
@@ -72,7 +85,7 @@ const Header = ({ className }) => {
             </span>
           )}
           {toggleCart && <Cart toggleCart={handleToggleCart} />}
-        </div>
+        </motion.div>
       </div>
       {toggleMenu && <ToggleMenu setToggleMenu={setToggleMenu} />}
     </div>

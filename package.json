@@ -13,6 +13,7 @@
     "@next/font": "13.2.4",
     "@reduxjs/toolkit": "^1.9.3",
     "dns": "file:./src/mock/dns",
+    "framer-motion": "^10.12.7",
     "mongodb": "^5.1.0",
     "next": "13.2.4",
     "react": "18.2.0",

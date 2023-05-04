@@ -11,6 +11,7 @@ import { getData } from "./api/products";
 import { useContext } from "react";
 import { LoadingContext } from "@/context/LoadingContext";
 import LoadingPage from "@/components/UI/loading/LoadingPage";
+import { motion } from "framer-motion";
 
 const Home = ({ data }) => {
   const loading = useContext(LoadingContext);
@@ -22,7 +23,12 @@ const Home = ({ data }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         {loading && <LoadingPage />}
         <Hero />
 
@@ -35,7 +41,7 @@ const Home = ({ data }) => {
         </MainContent>
 
         <Footer />
-      </>
+      </motion.div>
     </>
   );
 };
