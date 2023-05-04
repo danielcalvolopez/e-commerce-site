@@ -1,5 +1,4 @@
 import Link from "next/link";
-import HeaderBig from "../header/HeaderBig";
 import Button1 from "../UI/buttons/Button1";
 import classes from "./hero.module.css";
 import { motion } from "framer-motion";
@@ -7,8 +6,6 @@ import { motion } from "framer-motion";
 const Hero = () => {
   return (
     <div className={classes.container}>
-      <HeaderBig className={classes["bg-gray"]} />
-
       <div className={classes.hero}>
         <motion.div
           initial={{ opacity: 0, x: -100 }}

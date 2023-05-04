@@ -12,6 +12,8 @@ import { useContext } from "react";
 import { LoadingContext } from "@/context/LoadingContext";
 import LoadingPage from "@/components/UI/loading/LoadingPage";
 import { motion } from "framer-motion";
+import HeaderBig from "@/components/header/HeaderBig";
+import classes from "../components/hero/hero.module.css";
 
 const Home = ({ data }) => {
   const loading = useContext(LoadingContext);
@@ -30,6 +32,7 @@ const Home = ({ data }) => {
         transition={{ duration: 0.5 }}
       >
         {loading && <LoadingPage />}
+        <HeaderBig className={classes["bg-gray"]} />
         <Hero />
 
         <MainContent>
