@@ -17,7 +17,9 @@
 
 .img {
   width: 540px;
+  height: 100%;
   border-radius: 8px;
+  object-fit: contain;
 }
 
 .info .description {

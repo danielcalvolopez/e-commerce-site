@@ -3,6 +3,7 @@ import useScreenSize from "@/hooks/useScreenSize";
 import { useRouter } from "next/router";
 import classes from "./product.module.css";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Product = ({
   image,
@@ -29,10 +30,15 @@ const Product = ({
       transition={{ duration: 0.5 }}
       className={left ? classes.container : classes["container-reverse"]}
     >
-      <img
+      <Image
         className={classes.img}
         src={size > 1200 ? image?.desktop : image?.mobile}
+        alt=""
+        width={540}
+        height={540}
+        priority={true}
       />
+
       <div className={classes.info}>
         {newProduct && <p className={classes.new}>new product</p>}
         <h2 className={classes.name}>{name}</h2>
