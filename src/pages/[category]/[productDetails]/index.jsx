@@ -51,6 +51,7 @@ const ProductDetails = ({ data }) => {
           image={product?.image}
           name={product?.name}
           description={product?.description}
+          left
         >
           <Counter />
           <Button1 onClick={() => handleAddToCart(product)}>
