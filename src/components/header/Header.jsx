@@ -14,8 +14,24 @@ import { motion } from "framer-motion";
 const Header = ({ className }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [toggleCart, setToggleCart] = useState(false);
+  const [buttonIsHighlighted, setButtonIsHighlighted] = useState(false);
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (cart.cartTotalQuantity.length === 0) {
+      return;
+    }
+    setButtonIsHighlighted(true);
+
+    const timer = setTimeout(() => {
+      setButtonIsHighlighted(false);
+    }, 300);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [cart.cartTotalQuantity]);
 
   useEffect(() => {
     dispatch(getTotals());
@@ -72,7 +88,9 @@ const Header = ({ className }) => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.7 }}
-          className={classes["cart-wrapper"]}
+          className={`${classes["cart-wrapper"]} ${
+            buttonIsHighlighted && classes.bump
+          }`}
         >
           <AiOutlineShoppingCart
             onClick={handleToggleCart}
