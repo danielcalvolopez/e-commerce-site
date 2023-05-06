@@ -9,7 +9,7 @@ import Cart from "../cart/Cart";
 import { useDispatch, useSelector } from "react-redux";
 import { getTotals } from "../../redux/features/cartSlice";
 import Menu from "../menu/Menu";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Header = ({ className }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -105,7 +105,9 @@ const Header = ({ className }) => {
           {toggleCart && <Cart toggleCart={handleToggleCart} />}
         </motion.div>
       </div>
-      {toggleMenu && <ToggleMenu setToggleMenu={setToggleMenu} />}
+      <AnimatePresence>
+        {toggleMenu && <ToggleMenu setToggleMenu={setToggleMenu} />}
+      </AnimatePresence>
     </div>
   );
 };

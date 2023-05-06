@@ -2,6 +2,7 @@ import classes from "./toggle-menu.module.css";
 import Socials from "../socials/Socials";
 import { AiOutlineClose } from "react-icons/ai";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const ToggleMenu = ({ setToggleMenu }) => {
   const handleCloseMenu = () => {
@@ -9,7 +10,13 @@ const ToggleMenu = ({ setToggleMenu }) => {
   };
 
   return (
-    <div className={classes.container}>
+    <motion.div
+      initial={{ x: -200, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: -200, opacity: 0 }}
+      transition={{ duration: 0.4 }}
+      className={classes.container}
+    >
       <AiOutlineClose
         onClick={handleCloseMenu}
         className={classes.exit}
@@ -46,7 +53,7 @@ const ToggleMenu = ({ setToggleMenu }) => {
         </Link>
       </div>
       <Socials />
-    </div>
+    </motion.div>
   );
 };
 
