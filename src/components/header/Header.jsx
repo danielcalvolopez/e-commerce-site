@@ -102,7 +102,9 @@ const Header = ({ className }) => {
               {cart.cartTotalQuantity}
             </span>
           )}
-          {toggleCart && <Cart toggleCart={handleToggleCart} />}
+          <AnimatePresence>
+            {toggleCart && <Cart toggleCart={handleToggleCart} />}
+          </AnimatePresence>
         </motion.div>
       </div>
       <AnimatePresence>
