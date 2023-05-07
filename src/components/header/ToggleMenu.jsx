@@ -3,6 +3,7 @@ import Socials from "../socials/Socials";
 import { AiOutlineClose } from "react-icons/ai";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import menuData from "@/utils/data/menuData";
 
 const ToggleMenu = ({ setToggleMenu }) => {
   const handleCloseMenu = () => {
@@ -23,34 +24,16 @@ const ToggleMenu = ({ setToggleMenu }) => {
         size={30}
       />
       <div className={classes.menu}>
-        <Link
-          href="/"
-          onClick={handleCloseMenu}
-          className={classes["menu-item"]}
-        >
-          Home
-        </Link>
-        <Link
-          href="/headphones"
-          onClick={handleCloseMenu}
-          className={classes["menu-item"]}
-        >
-          Headphones
-        </Link>
-        <Link
-          href="/speakers"
-          onClick={handleCloseMenu}
-          className={classes["menu-item"]}
-        >
-          Speakers
-        </Link>
-        <Link
-          href="/earphones"
-          onClick={handleCloseMenu}
-          className={classes["menu-item"]}
-        >
-          Earphones
-        </Link>
+        {menuData.map(({ name, path }) => (
+          <Link
+            key={path}
+            href={path}
+            onClick={handleCloseMenu}
+            className={classes["menu-item"]}
+          >
+            {name}
+          </Link>
+        ))}
       </div>
       <Socials />
     </motion.div>

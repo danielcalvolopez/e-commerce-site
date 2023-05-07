@@ -14,7 +14,7 @@ import { AnimatePresence, motion } from "framer-motion";
 const Header = ({ className }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [toggleCart, setToggleCart] = useState(false);
-  const [buttonIsHighlighted, setButtonIsHighlighted] = useState(false);
+  const [cartIsBumping, setCartIsBumping] = useState(false);
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
@@ -22,10 +22,10 @@ const Header = ({ className }) => {
     if (cart.cartTotalQuantity.length === 0) {
       return;
     }
-    setButtonIsHighlighted(true);
+    setCartIsBumping(true);
 
     const timer = setTimeout(() => {
-      setButtonIsHighlighted(false);
+      setCartIsBumping(false);
     }, 300);
 
     return () => {
@@ -89,7 +89,7 @@ const Header = ({ className }) => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.7 }}
           className={`${classes["cart-wrapper"]} ${
-            buttonIsHighlighted && classes.bump
+            cartIsBumping && classes.bump
           }`}
         >
           <AiOutlineShoppingCart
