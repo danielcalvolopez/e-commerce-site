@@ -2,6 +2,7 @@ import FormItem from "../UI/form/FormItem";
 import classes from "./checkout-form-section.module.css";
 import cashOnDeliveryLogo from "../../../public/assets/checkout/icon-cash-on-delivery.svg";
 import Image from "next/image";
+import checkoutFormItemsData from "@/utils/data/checkoutFormItemsData";
 
 const CheckoutFormSection = ({
   billing,
@@ -18,30 +19,18 @@ const CheckoutFormSection = ({
         <div className={classes.section}>
           <label className={classes.title}>billing details</label>
           <div className={classes["inputs"]}>
-            <FormItem
-              label="name"
-              placeholder="John Doe"
-              name="name"
-              type="text"
-              errorMessage={errors.name?.message}
-              register={register}
-            />
-            <FormItem
-              label="email address"
-              placeholder="johndoe@gmail.com"
-              name="email"
-              type="text"
-              errorMessage={errors.email?.message}
-              register={register}
-            />
-            <FormItem
-              label="phone number"
-              placeholder="07654321098"
-              name="phone"
-              type="number"
-              errorMessage={errors.phone?.message}
-              register={register}
-            />
+            {checkoutFormItemsData.billing.map(
+              ({ name, placeholder, label, type }) => (
+                <FormItem
+                  label={label}
+                  placeholder={placeholder}
+                  name={name}
+                  type={type}
+                  errorMessage={errors[name]?.message}
+                  register={register}
+                />
+              )
+            )}
           </div>
         </div>
       )}
@@ -57,30 +46,18 @@ const CheckoutFormSection = ({
             register={register}
           />
           <div className={classes["inputs"]}>
-            <FormItem
-              label="ZIP code"
-              placeholder="W9 4HG"
-              name="postCode"
-              type="text"
-              errorMessage={errors.postCode?.message}
-              register={register}
-            />
-            <FormItem
-              label="city"
-              placeholder="London"
-              name="city"
-              type="text"
-              errorMessage={errors.city?.message}
-              register={register}
-            />
-            <FormItem
-              label="country"
-              placeholder="United Kingdom"
-              name="country"
-              type="text"
-              errorMessage={errors.country?.message}
-              register={register}
-            />
+            {checkoutFormItemsData.shipping.map(
+              ({ name, placeholder, label, type }) => (
+                <FormItem
+                  label={label}
+                  placeholder={placeholder}
+                  name={name}
+                  type={type}
+                  errorMessage={errors[name]?.message}
+                  register={register}
+                />
+              )
+            )}
           </div>
         </div>
       )}
@@ -90,39 +67,33 @@ const CheckoutFormSection = ({
           <div className={classes.payment}>
             <p>Payment Method</p>
             <div className={classes.radio}>
-              <FormItem
-                id="e-Money"
-                label="e-Money"
-                checked={paymentMethod === "e-Money"}
-                onClick={handleChangePayment}
-                type="radio"
-              />
-              <FormItem
-                id="Cash on Delivery"
-                label="Cash on Delivery"
-                onClick={handleChangePayment}
-                checked={paymentMethod === "Cash on Delivery"}
-                type="radio"
-              />
+              {checkoutFormItemsData.paymentMethod.map(
+                ({ id, label, type }) => (
+                  <FormItem
+                    id={id}
+                    label={label}
+                    checked={paymentMethod === label}
+                    onClick={handleChangePayment}
+                    type={type}
+                  />
+                )
+              )}
             </div>
           </div>
 
           {paymentMethod === "e-Money" ? (
             <div className={classes["inputs"]}>
-              <FormItem
-                label="e-Money Number"
-                placeholder="238521993"
-                name="eNumber"
-                type="number"
-                register={register}
-              />
-              <FormItem
-                label="e-Money PIN"
-                placeholder="6891"
-                name="ePin"
-                type="number"
-                register={register}
-              />
+              {checkoutFormItemsData.paymentCredentials.map(
+                ({ label, placeholder, name, type }) => (
+                  <FormItem
+                    label={label}
+                    placeholder={placeholder}
+                    name={name}
+                    type={type}
+                    register={register}
+                  />
+                )
+              )}
             </div>
           ) : (
             <div className={classes.cod}>

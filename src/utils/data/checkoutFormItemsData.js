@@ -42,7 +42,7 @@ const checkoutFormItemsData = {
       section: "shipping",
       name: "country",
       placeholder: "United Kingdom",
-      label: "countryu",
+      label: "country",
       type: "text",
     },
   ],
