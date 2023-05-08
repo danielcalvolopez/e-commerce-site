@@ -11,7 +11,6 @@ import classes from "./checkout-summary.module.css";
 const CheckoutSummary = ({ isFormValid }) => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getTotals());
   }, [cart]);
