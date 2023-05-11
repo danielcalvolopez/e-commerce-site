@@ -17,7 +17,6 @@ const CheckoutForm = ({
       className={classes.checkout}
     >
       <h3>checkout</h3>
-
       <CheckoutFormSection billing errors={errors} register={register} />
       <CheckoutFormSection shipping errors={errors} register={register} />
       <CheckoutFormSection
