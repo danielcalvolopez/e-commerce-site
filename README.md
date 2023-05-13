@@ -1,5 +1,7 @@
 # **E-commerce Website**
 
+This website offers an entire online shopping experience and is ready to be used, every order placed is stored in a Mongo data base and inside Redux store.
+
 ## **Dependencies:**
 
 - React JS
@@ -23,11 +25,11 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-This website offers an entire online shopping experience and is ready to be used, every order placed is stored in a Mongo data base and inside Redux store.
-
 ## **Sections:**
 
 - **Header:** Composed by the logo, menu (toggle version on responsive) and cart.
+  ![](./screenshots/header.png)
+
 - **Header Big:** The same as header but with a subheader with the name of the category.
 - **Footer:** Contains logo, small description, social links and menu links.
 - **Categories:** Component that contains every category (each one represented with a picture).
@@ -59,3 +61,5 @@ This website offers an entire online shopping experience and is ready to be used
 - **Screen Size Hook:** This custom hook is to calculate the size of the screen to conditionally fetch some images, depending on the device the user is accessing the website from.
 - **Loading:** When the website is loading or transitioning to a different page, you will see a dark backdrop with a loading spinner, to let the user know that is currently loading. This has been created with context and use state, to conditionally set isLoading state to true or false. The loading spinner animation has been created with pure CSS, keyframes.
 - **DOM elements transitions:** Framer motion is the technology used to create the subtle and smooth effects when elements are added or removed from the DOM.
+
+This website is completely responsive and can be used on every device.
