@@ -88,13 +88,11 @@ const Header = ({ className }) => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.7 }}
-          className={`${classes["cart-wrapper"]} ${
-            cartIsBumping && classes.bump
-          }`}
+          className={`${classes["cart-wrapper"]}`}
         >
           <AiOutlineShoppingCart
             onClick={handleToggleCart}
-            className={classes.cart}
+            className={`${classes.cart} ${cartIsBumping && classes.bump}`}
             size={22}
           />
           {cart.cartItems.length > 0 && (

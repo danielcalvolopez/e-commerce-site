@@ -26,7 +26,6 @@ const Cart = ({ toggleCart }) => {
 
   const handleClearCart = () => {
     dispatch(clearCart());
-    toggleCart();
   };
 
   const handleIncreaseQuantity = (product) => {
