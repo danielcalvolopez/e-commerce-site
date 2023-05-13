@@ -22,6 +22,7 @@ const CheckoutFormSection = ({
             {checkoutFormItemsData.billing.map(
               ({ name, placeholder, label, type }) => (
                 <FormItem
+                  key={name}
                   label={label}
                   placeholder={placeholder}
                   name={name}
@@ -49,6 +50,7 @@ const CheckoutFormSection = ({
             {checkoutFormItemsData.shipping.map(
               ({ name, placeholder, label, type }) => (
                 <FormItem
+                  key={name}
                   label={label}
                   placeholder={placeholder}
                   name={name}
@@ -70,6 +72,7 @@ const CheckoutFormSection = ({
               {checkoutFormItemsData.paymentMethod.map(
                 ({ id, label, type }) => (
                   <FormItem
+                    key={name}
                     id={id}
                     label={label}
                     checked={paymentMethod === label}
@@ -86,6 +89,7 @@ const CheckoutFormSection = ({
               {checkoutFormItemsData.paymentCredentials.map(
                 ({ label, placeholder, name, type }) => (
                   <FormItem
+                    key={name}
                     label={label}
                     placeholder={placeholder}
                     name={name}
