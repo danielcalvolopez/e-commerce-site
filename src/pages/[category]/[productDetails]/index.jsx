@@ -19,6 +19,7 @@ import { addCustomAmountToCart } from "@/redux/features/cartSlice";
 import { reset, selectCount } from "@/redux/features/counterSlice";
 import { LoadingContext } from "@/context/LoadingContext";
 import LoadingPage from "@/components/UI/loading/LoadingPage";
+import Head from "next/head";
 
 const ProductDetails = ({ data }) => {
   const router = useRouter();
@@ -43,6 +44,9 @@ const ProductDetails = ({ data }) => {
   }, [router.query.productDetails]);
   return (
     <>
+      <Head>
+        <title>{product?.name}</title>
+      </Head>
       {loading && <LoadingPage />}
       <Header className={classes["header-bg-black"]} />
       <MainContent>

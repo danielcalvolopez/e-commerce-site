@@ -15,6 +15,7 @@ import { LoadingContext } from "@/context/LoadingContext";
 import LoadingPage from "@/components/UI/loading/LoadingPage";
 import usePostOrder from "@/hooks/usePostOrder";
 import CheckoutForm from "@/components/checkout/CheckoutForm";
+import Head from "next/head";
 
 const checkout = () => {
   const router = useRouter();
@@ -47,6 +48,9 @@ const checkout = () => {
 
   return (
     <>
+      <Head>
+        <title>Checkout</title>
+      </Head>
       {loading && <LoadingPage />}
       <Header className={classes["header-bg-black"]} />
       <MainContent bgGray>

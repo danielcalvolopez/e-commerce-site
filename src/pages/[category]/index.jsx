@@ -6,6 +6,7 @@ import Products from "@/components/sections/products/Products";
 import LoadingPage from "@/components/UI/loading/LoadingPage";
 import MainContent from "@/components/UI/MainContent";
 import { LoadingContext } from "@/context/LoadingContext";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import classes from "../../styles/category.module.css";
@@ -20,6 +21,9 @@ const Category = (props) => {
 
   return (
     <>
+      <Head>
+        <title>{category.charAt(0).toUpperCase() + category.slice(1)}</title>
+      </Head>
       {loading && <LoadingPage />}
       <HeaderBig title={category} className={classes["header-bg-black"]} />
       <MainContent>
