@@ -1,13 +1,17 @@
 import Button2 from "@/components/UI/buttons/Button2";
+import Image from "next/image";
 import Link from "next/link";
 import classes from "./banner3.module.css";
 
 const Banner3 = () => {
   return (
     <div className={classes.container}>
-      <img
+      <Image
         className={classes.img}
         src="/assets/desktop/image-earphones-yx1.jpg"
+        alt=""
+        width={200}
+        height={300}
       />
       <div className={classes.info}>
         <h4>YX1 EARPHONES</h4>
