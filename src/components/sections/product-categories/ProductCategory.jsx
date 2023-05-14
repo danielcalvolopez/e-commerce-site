@@ -6,7 +6,13 @@ import classes from "./product-category.module.css";
 const ProductCategory = ({ img, name }) => {
   return (
     <div className={classes.container}>
-      <Image className={classes.thumbnail} width={170} height={150} src={img} />
+      <Image
+        className={classes.thumbnail}
+        width={170}
+        height={150}
+        src={img}
+        alt=""
+      />
       <div className={classes.card}>
         <h6>{name}</h6>
         <Link href={`/${name}`}>
