@@ -12,7 +12,7 @@ export const getData = async () => {
   return products;
 };
 
-const handler = async (req, res) => {
+const handler = async (res) => {
   const products = await getData();
   await res.status(201).json(products);
 };
